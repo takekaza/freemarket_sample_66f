@@ -1,24 +1,85 @@
-# README
+## userテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|name|string|null: false| 
+|email|string|null: false| 
+|address|string|null: false| 
+|password|string|null: false| 
+ 
+### Association 
+- has_many :pays
+- has_many :items
+ 
+## itemテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|name|strings|null: false| 
+|img|text|null: false| 
+|price|int|null: false| 
+|user_id|integer|null: false, foreign_key: true| 
+|condition|string|null: false| 
+|size|string|null: false| 
+|way|string|null: false| 
+|date|string|null: false| 
+ 
+### Association 
+- belongs_to :user 
+- has_many :categories,through:items_categories 
+- belongs_to:brand
+ 
+## payテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|user_id|integer|null: false, foreign_key: true| 
+|id|integer|null: false| 
+|card_id|integer|null: false| 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association 
+- belongs_to: user
 
-Things you may want to cover:
+## categoryテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|id|integer|null: false| 
+|name|string|null: false|
+|parent_id|integer|null: false|
+|item_id|integer|null: false|
+|brand_id|integer|null: false|
 
-* Ruby version
+### Association 
+- has_many :items
+- has_many  :items, through:items_categories
+- has_many :brands, through:categories_brands 
+## items_categoriesテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|id|integer|null: false, foreign_key: true| 
+|item_id|integer|null: false, foreign_key: true| 
+|category_id|integer|null: false, foreign_key: true|
 
-* System dependencies
+### Association 
+- belongs_to :item
+- belongs_to : category 
+## brandテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|name|string|null: false| 
+|item_id|integer|null: false, foreign_key: true| 
+|id|integer|null: false, foreign_key: true| 
+|categry_id|integer|null: false, foreign_key: true|
 
-* Configuration
+### Association 
+- has_many :items
+- has_many : categories, through:categories_brands
 
-* Database creation
+## categories_brandsテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|id|integer|null: false, foreign_key: true| 
+|category_id|integer|null: false, foreign_key: true| 
+|item_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association 
+- belongs_to :category
+- belongs_to : brand
