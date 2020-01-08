@@ -82,4 +82,4 @@
 
 ### Association 
 - belongs_to :category
-- belongs_to : brand 
+- belongs_to : brand
