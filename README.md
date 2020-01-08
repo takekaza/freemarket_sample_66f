@@ -1,4 +1,4 @@
-## userテーブル 
+## usersテーブル 
 |Column|Type|Options| 
 |------|----|-------| 
 |name|string|null: false| 
@@ -10,7 +10,7 @@
 - has_many :pays
 - has_many :items
  
-## itemテーブル 
+## itemsテーブル 
 |Column|Type|Options| 
 |------|----|-------| 
 |name|strings|null: false| 
@@ -27,7 +27,7 @@
 - belongs_to :category 
 - belongs_to:brand
  
-## payテーブル 
+## paysテーブル 
 |Column|Type|Options| 
 |------|----|-------| 
 |user_id|integer|null: false, foreign_key: true| 
@@ -37,7 +37,7 @@
 ### Association 
 - belongs_to: user
 
-## categoryテーブル 
+## categoriesテーブル 
 |Column|Type|Options| 
 |------|----|-------| 
 |id|integer|null: false| 
@@ -51,7 +51,7 @@
 - has_many :brands, through:categories_brands 
 
 
-## brandテーブル 
+## brandsテーブル 
 |Column|Type|Options| 
 |------|----|-------| 
 |name|string|null: false| 
