@@ -14,7 +14,6 @@
 |Column|Type|Options| 
 |------|----|-------| 
 |name|strings|null: false| 
-|img|text|null: false| 
 |price|int|null: false| 
 |user_id|integer|null: false, foreign_key: true| 
 |condition|string|null: false| 
@@ -26,7 +25,19 @@
 - belongs_to :user 
 - belongs_to :category 
 - belongs_to:brand
+- has_many :images
+
+## imagesテーブル
+|Column|Type|Options| 
+|------|----|-------| 
+|id|integer|null: false| 
+|url|text|null: false| 
+|item_id|int|null: false|
  
+### Association
+- belongs_to :item
+
+
 ## paysテーブル 
 |Column|Type|Options| 
 |------|----|-------| 
