@@ -24,7 +24,7 @@
  
 ### Association 
 - belongs_to :user 
-- has_many :categories,through:items_categories 
+- belongs_to :category 
 - belongs_to:brand
  
 ## payテーブル 
@@ -48,18 +48,9 @@
 
 ### Association 
 - has_many :items
-- has_many  :items, through:items_categories
 - has_many :brands, through:categories_brands 
-## items_categoriesテーブル 
-|Column|Type|Options| 
-|------|----|-------| 
-|id|integer|null: false, foreign_key: true| 
-|item_id|integer|null: false, foreign_key: true| 
-|category_id|integer|null: false, foreign_key: true|
 
-### Association 
-- belongs_to :item
-- belongs_to : category 
+
 ## brandテーブル 
 |Column|Type|Options| 
 |------|----|-------| 
