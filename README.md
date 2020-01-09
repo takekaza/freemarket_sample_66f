@@ -1,28 +1,121 @@
-# README
+## usersテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|name|string|null: false| 
+|email|string|null: false| 
+|address|string|null: false| 
+|password|string|null: false| 
+�
+### Association 
+- has_many :cards dependent: :destroy
+- has_many :items dependent: :destroy
+- has_many :addresses dependent: :destroy
+�
+## itemsテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|name|strings|null: false| 
+|price|int|null: false| 
+|user_id|integer|null: false, foreign_key: true| 
+|condition|string|null: false| 
+|size|string|null: false| 
+|way|string|null: false| 
+|date|string|null: false|
+|category_id|integer|null:false|
+|brand_id|integer|null:false|
+�
+### Association 
+- belongs_to :user 
+- belongs_to :category 
+- belongs_to:brand
+- has_many :images dependent: :destroy 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## imagesテーブル
+|Column|Type|Options| 
+|------|----|-------| 
+|id|integer|null: false| 
+|url|text|null: false| 
+|item_id|int|null: false, foreign_key: true|
+�
+### Association
+- belongs_to :item  
 
-* Ruby version
 
-* System dependencies
+## cardsテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|user_id|integer|null: false, foreign_key: true| 
+|id|integer|null: false| 
+|card_id|integer|null: false,foreign_key: true|  
 
-* Configuration
+### Association 
+- belongs_to: user
 
-* Database creation
 
-* Database initialization
+## categoriesテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|id|integer|null: false| 
+|name|string|null: false|
+|parent_id|integer|null: false|
 
-* How to run the test suite
+### Association 
+- has_many :items
+- has_many :categories_brands, dependent: :destroy
+- has_many :brands, through:categories_brands�  
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## brandsテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|name|string|null: false| 
+ foreign_key: true| 
+|id|integer|null: false, foreign_key: true| 
+|categry_id|integer|null: false, foreign_key: true| 
 
-* ...
+### Association 
+- has_many :items
+- has_many :categories_brands, dependent: :destroy
+- has_many : categories, through:categories_brands 
 
-テスト
 
-テスト２
+## categories_brandsテーブル 
+|Column|Type|Options| 
+|------|----|-------| 
+|id|integer|null: false, foreign_key: true| 
+|category_id|integer|null: false, foreign_key: true| 
+|item_id|integer|null: false, foreign_key: true|
+|name|string|null: false| 
+
+### Association 
+- belongs_to :category
+- belongs_to : brand� 
+
+
+## addressesテーブル
+|Column|Type|Options| 
+|------|----|-------|
+|user_id|integer|foreign_key:true|
+|post_number|integer|null:false|
+|prefecture|string|null:false|
+|city|string|null:false|
+|town|string|null:false|
+|building|string||
+
+### Association
+- belongs_to :user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
