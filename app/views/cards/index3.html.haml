@@ -7,12 +7,16 @@
           .chapter__inner__title
             %h3.chapter__inner__title__text クレジットカード一覧
           .chapter__inner__setting-card
-            %ul.chapter__inner__setting-card__content
+            %ul.chapter__inner__setting-card__list
               %li
-                %form(action: "#", class: "single-content", method: post)
+                %form
                   %figure
-                    %i<img src="//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2091621301" width="34" height="20" alt="master-card">
-
+                    = image_tag "Mastercard-logo.svg",width:"28px",height:"20px", alt:"masca"
+                  .chapter__inner__setting-card__list__payment_number
+                    ************2303
+                  .chapter__inner__setting-card__list__payment_day
+                    09 / 24
+                  = %button(type="submit")
               
         .setting-not-resist
           = link_to "#", class: ".setting-not-resist" do

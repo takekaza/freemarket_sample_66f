@@ -185,6 +185,16 @@
       border-bottom: 1px solid #eee;
       margin: 0 auto;
 
+      &__list{
+        figure{
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+          margin-inline-start: 5px;
+          margin-inline-end: 0px;
+          
+        }
+      }
+
       &__content{
         margin: 0 auto;
         max-width: 320px;
