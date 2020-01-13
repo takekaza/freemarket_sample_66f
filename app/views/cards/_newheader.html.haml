@@ -31,6 +31,7 @@
         %li.myboxbar_end--li
           = link_to cards_path, class: "myboxbar_end--li" do
             マイページ
+
 .mybox-bottom
   %ul.menulist
     %li.menulist__sub
@@ -38,5 +39,9 @@
         %span
           Fmarket
         = icon('fas', 'chevron-right', class: 'menulist__sub--icon')
-        %span.now
+      = link_to cards_path, class: "menulist__sub" do
+        %span
           マイページ
+        = icon('fas', 'chevron-right', class: 'menulist__sub--icon')
+        %span.now
+          プロフィール
