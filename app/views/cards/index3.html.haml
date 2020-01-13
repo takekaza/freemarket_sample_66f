@@ -1,0 +1,20 @@
+.container
+  .content
+    %section.content__chapter
+      %h2.chapter__head 支払い方法
+      .chapter__inner
+        %section
+          .chapter__inner__title
+            %h3.chapter__inner__title__text クレジットカード一覧
+          .chapter__inner__setting-card
+            %ul.chapter__inner__setting-card__content
+              %li
+                %form(action: "#", class: "single-content", method: post)
+                  %figure
+                    %i<img src="//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2091621301" width="34" height="20" alt="master-card">
+
+              
+        .setting-not-resist
+          = link_to "#", class: ".setting-not-resist" do
+            %span 支払い方法について
+            %i.fas.fa-angle-right

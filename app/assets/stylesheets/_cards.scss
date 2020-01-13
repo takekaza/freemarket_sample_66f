@@ -1,0 +1,236 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.content{
+  width: 100%;
+  background: white;
+  padding: 40px;
+}
+
+.userimage{
+  position: relative;
+  height: 155px;
+  padding: 20px;
+  background-image: url("/images/mypage_userimg.jpg/");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  figure {
+      overflow: hidden;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 50%;
+ 
+  }
+  h2{
+    position: absolute;
+    margin: 0 auto;
+    display: block;
+    font-size: 1.0em;
+    font-weight: bold;
+
+  }
+  .mypage-number{
+    position: absolute;
+    margin: 8px 0 0;
+    margin-left: -40px;
+    margin-block-start: 1.3em;
+    margin-block-end: 0.83em;
+    text-align: center;
+    display: flex;
+ 
+
+  }
+}
+.content__todo{
+  width:100%;
+  height: 300px;
+  background-color: white;
+  color: #333333;
+  cursor: pointer;
+
+  
+  &__golist{
+    line-height: 68px;
+    text-align: center;
+    padding: 16px;
+    a{
+      display: block;
+      height: 56px;
+      margin: 0 auto;
+      background: #eee;
+      color: #333;
+      line-height: 56px;
+      text-align: center;
+    }
+  }
+
+  .content__todo__list{
+
+ 
+    &__body{
+      margin: 0 0px 0 68px;
+      clear: both;
+
+      &__time{
+      display: flex;
+        i{
+          margin: 4px 8px 0 0;
+        }
+      }
+
+
+      &__text{
+        overflow: hidden;
+        display: block;
+        max-height: 4.4em;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+      }
+    }
+
+    li{
+      border-bottom: 1px solid;
+      border-bottom-color: #f5f5f5f5;
+      min-height: 76px;
+      font-size: 14px;
+      padding-top: 17px;
+
+
+
+      figure{
+        position: relative;
+        overflow: hidden;
+        float: left;
+        width: 48px;
+        height: 48px;
+
+        img{
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+
+        }
+
+        }
+      }
+  }
+
+
+
+
+
+  &__tabs{
+    display: flex;
+    line-height: 72px;
+    font-weight: bold;
+    li{
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+ 
+    }
+
+   &__left{
+     border-top: 2px solid #ea352d;
+     width: 50%;
+     background-color: white;
+     font-size: 16px;
+
+     text-align: center;
+
+   }
+   &__right{
+
+     background-color: #f5f5f5f5;
+     width:50%;
+     font-size: 16px;
+     text-align: center;
+   }
+  }
+}
+
+///////////////////お知らせ・やることリスト//////////////////////////
+
+.content__chapter{
+  padding: 40px;
+  background-color: white;
+  border-bottom-color: #f5f5f5f5;
+
+
+  h2.chapter__head{
+    font-weight: bold;
+    padding: 12px 4%;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .chapter__inner{
+
+    margin: 0 auto;
+    padding: 40px;
+    &__setting-card{
+      padding: 24px 0;
+      border-bottom: 1px solid #eee;
+      margin: 0 auto;
+
+      &__content{
+        margin: 0 auto;
+        max-width: 320px;
+        min-width: 320px;
+        line-height: 50px;
+        display: flex;
+        background: rgb(240, 103, 10);
+        color: white;
+
+        i{
+          line-height: 50px;
+          padding-left: 50px;
+        }
+
+      }
+
+
+    }
+
+    &__title{
+      margin: 0 auto;
+      max-width: 320px;
+      &__text{
+        font-weight: bold;
+      }
+ 
+    }
+  }
+
+  .setting-not-resist{
+    display: block;
+    margin: 40px 0 0;
+
+    text-align: right;
+    
+    a{
+      
+      color: #0099e8;
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+
+
+////////////クレジットカード登録ページ/////////////////
+

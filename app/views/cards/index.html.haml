@@ -1,0 +1,61 @@
+.container
+  .content
+    %section.content__top
+      .userimage
+        %figure
+          = image_tag "member_photo_noimage_thumb.png",width:"60px",height:"60px", alt:"userlogo"
+          %h2.bold
+            ユーザー
+          .mypage-number
+            %div 評価　0　
+            %div 出品数　0
+
+    %section.content__todo
+      %ul.content__todo__tabs
+        %li.content__todo__tabs__left
+          %p お知らせ
+        %li.content__todo__tabs__right
+          %p やることリスト
+      .content__todo
+        %ul.content__todo__list
+          %li
+            .content__todo__list__body
+            %figure
+              = image_tag "mercari_profile.png",width:"48px",height:"48px", alt:"logo"
+            %p.content__todo__list__body__text 事務局から個別メッセージ「googleログイン通知」
+            .content__todo__list__body__time 
+              %i.far.fa-clock
+              %p 2時間前
+
+          %li
+            .content__todo__list__body
+            %figure
+              = image_tag "mercari_profile.png",width:"48px",height:"48px", alt:"logo"
+            %p.content__todo__list__body__text 3日後、P999還元クーポンの有効期限が切れます！タップして詳細を確認しましょう
+            .content__todo__list__body__time 
+              %i.far.fa-clock
+              %p 2時間前
+          %li
+            .content__todo__list__body
+            %figure
+              = image_tag "mercari_profile.png",width:"48px",height:"48px", alt:"logo"
+            %p.content__todo__list__body__text 《2,020名様に1万円が当たる！》パシャシュッピーンキャンペーン開催中♪
+            .content__todo__list__body__time 
+              %i.far.fa-clock
+              %p 2時間前
+          %li
+            .content__todo__list__body
+            %figure
+              = image_tag "mercari_profile.png",width:"48px",height:"48px", alt:"logo"
+            %p.content__todo__list__body__text 事務局から個別メッセージ「googleログイン通知」
+            .content__todo__list__body__time 
+              %i.far.fa-clock
+              %p 2時間前
+          %li
+            .content__todo__golist 
+              %a 一覧を見る
+
+          
+
+
+    
