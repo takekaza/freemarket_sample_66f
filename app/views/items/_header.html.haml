@@ -1,0 +1,23 @@
+.header
+  .box
+    .boxtop
+      .boxtop__img
+        = image_tag "fmarket_logo_red.svg", class: "boxtop__img", alt:"logo"
+      .boxtop__form
+        %input#keyword.boxtop__form{:placeholder => "何かお探しですか？", :type => "text"}/
+        = link_to "#", class: "boxtop__form" do
+          = icon('fas', 'search', class: 'boxtop__form--icon')
+    .boxbar
+      .boxbar__list
+        = link_to "#", class: "boxbar__list" do
+          = icon('fas', 'list-ul', class: 'boxbar__list--icon')
+          カテゴリーから探す
+        = link_to "#", class: "boxbar__list" do
+          = icon('fas', 'tags', class: 'boxbar__list--icon')
+          ブランドから探す
+      .boxbar__end
+        = link_to "#", class: "boxbar__end--sinup" do
+          新規会員登録
+        = link_to cards_path, class: "boxbar__end--login" do
+          ログイン
+
