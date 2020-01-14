@@ -127,6 +127,25 @@
               #text
                 ログアウト
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
-    = render "card"
+
+
+
+    .container
+      %h2.toptitle
+        プロフィール
+      .content
+        .content__top
+          .userimage
+            .myimg
+              .myimg__top
+              %input#keyword.myimg__form{placeholder: "" , type: "text"}
+ 
+        .content__prof
+          %textarea.content__prof__text{name: "content", placeholder: "例）こんにちは! ご覧頂きありがとうございます!", type: "text"}
+
+          .content__prof__sum
+            = link_to "#", class: "" do
+              変更する
+
 
 
