@@ -1,4 +1,5 @@
 FactoryBot.define do
+  require 'faker'
   pass = Faker::Internet.password(6)
   
   factory :user do

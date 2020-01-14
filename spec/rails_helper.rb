@@ -10,6 +10,7 @@ require 'rspec/rails'
 require 'factory_bot'
 require 'database_cleaner'
 require 'devise'
+require 'faker'
 require File.expand_path("spec/support/controller_macros.rb")
 # Add additional requires below this line. Rails is not loaded until this point!
 
