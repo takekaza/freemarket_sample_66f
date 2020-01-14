@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "items#index"
+  root "cards#index"
   resources :cards, only: [:index, :new]
-  resources :items, only: :new
+  resources :items, only: [:index, :new]
 end
