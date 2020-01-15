@@ -7,6 +7,16 @@ section{
   color: white;
 }
 
+.form-arbitray{
+  background: #ccc;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
 .chapter-container{
   margin: 0 auto;
   background: white;
@@ -27,6 +37,11 @@ section{
     border-top: 1px solid #f5f5f5;
     margin: 0 auto;
 
+    p{
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+
     .text-right{
       text-align: right;
     }
@@ -35,5 +50,22 @@ section{
   
   .from-group{
     margin: 40px 0 0;
+    
+    .input-default{
+      width: 100%;
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+
+    
+    label{
+      font-weight: 600;
+    }
   }
 }
