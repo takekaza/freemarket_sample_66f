@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root "home#show"
+  root "home#index"
   resources :cards, only: [:index, :new, :create]
+  resources :items, only: [:index, :new]
   resources :items, only: [:index, :new]
 end
