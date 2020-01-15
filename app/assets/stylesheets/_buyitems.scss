@@ -1,0 +1,273 @@
+.buy-items{
+  // ヘッダー
+  &__header{
+    height: 128px; 
+    margin: 0 auto;
+    padding: 40px 0 0 0;
+    
+    &--logo{
+      margin: 0 auto;
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: block;
+      :hover{
+        opacity: 0.5 ;
+      }
+    }
+  }
+  &__main{
+    background: #fff;
+    display: block;
+    width: 700px;
+    margin: 0 auto;
+    // 購入内容の確認
+    &__text{
+      font-weight: bold;
+      padding: 32px 16px;
+      font-size: 22px;
+      padding: 24px 8px;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;  
+
+    }
+    // 購入商品の情報
+    &__item{
+      text-align: center;
+      padding: 24px 16px;
+      border-top: 1px solid #f5f5f5;
+      &--inner{
+        max-width: 343px;
+        margin: 0 auto;
+        &--box{
+          display: flex;
+          &__left{
+            background-image:url(https://static.mercdn.net/thumb/photos/m24342302529_1.jpg?1578985472);
+            background-repeat:no-repeat ;
+            background-size:cover ;
+            height: 80px;
+            width: 80px;
+            min-width: 80px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+          }
+          &__right{
+            margin-left: 16px;
+            &__name{
+              font-size: 14px;
+              margin: 0;
+              padding: 0 0 8px;
+              line-height: 1.5;
+              text-align: left;
+            }
+            &__fee{
+              margin: 0;
+              text-align: left;
+              font-size: 15px;
+              display: flex;
+              align-items: center;
+
+              &__tax{
+                font-size: 12px;
+              }
+
+            }
+          }
+        }
+      }
+
+    }
+    // 支払金額と支払い方法
+    &__pay{
+      padding-bottom: 48px;
+      padding: 24px 16px;
+      border-top: 1px solid #f5f5f5;
+      &--inner{
+        max-width: 343px;
+        margin: 0 auto;        
+        &--box{
+          &__value{
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            font-weight: bold;
+
+            &__left{
+              font-size: 18px;
+            }
+
+          }
+          &__point{
+            
+            color: #888;
+            margin: 24px 0;
+            &--box{
+              display: flex;
+              align-items: center;
+              &__check{
+                margin-right:8px ;
+                z-index: 1;
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                color: #ccc;
+                background: #ccc;
+                border: 1px solid #ccc;
+                font-size: 10px;
+                line-height: 17px;
+                text-align: center;
+              }
+              &__text{
+
+                z-index: 2;
+                padding: 0 0 0 28px;
+                font-size: 14px;
+                font-weight: 400;
+                vertical-align: middle;
+                cursor: pointer;               
+              }
+            }
+            
+          }
+          &__way{
+            transition: all ease-out .3s;
+            text-align: left;
+            padding: 24px 0;
+            margin: 0;
+            border-top: 1px solid #f5f5f5;
+            &--inner{
+              max-width: 343px;
+              margin: 0 auto;
+  
+              &__information{
+                text-align: left;
+                margin: 8px 0 0;
+                font-size: 14px;
+                line-height: 1.5;
+
+              }
+              &__bland{
+                background-image: url(//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2091621301);
+                background-repeat:no-repeat ;
+                background-size:cover ;
+                display: block;
+                width: 49px;
+                height: 15px;      
+                margin-top: 8px;          
+              }
+            }
+            
+          }
+          &__adress{
+            transition: all ease-out .3s;
+            text-align: left;
+            padding: 24px 0;
+            margin: 0;
+            border-top: 1px solid #f5f5f5;
+            &--inner{
+             
+              &--information{
+                margin: 8px 0 0;
+                font-size: 14px;
+                line-height: 1.4;  
+
+              }
+            
+            }
+          }
+          &__btn{
+            transition: all ease-out .3s;
+            text-align: left;
+            padding: 24px 0;
+            margin: 0;
+            border-top: 1px solid #f5f5f5;
+            &--red-btn{
+              background: #f0670a;
+              border: 1px solid #f0670a;
+              color: #fff;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              -webkit-transition: all ease-out .3s;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;     
+              &:hover{
+                opacity: 0.5 ;  
+              }         
+                        
+            }
+          }
+        }
+      }
+
+    }
+  }
+  // フッター
+  &__footer{
+    z-index: 1;
+    height: 250px;
+    padding: 40px 0;
+    text-align: center;
+    background-color: #f5f5f5;
+
+    &__list{
+      
+      &--ul{
+        &--li{
+          display: inline-block;
+          margin: 0 0 40px  16px;
+          &:hover{
+            opacity: 0.5 ;
+
+          }
+        }
+        
+      }
+    }
+    &__logo{
+      width: 80px;
+      height: 65px;
+      background-image: url(logo_gray.svg);
+      display: block;
+      background-repeat:no-repeat ;
+      background-size: cover;
+      margin:  0 auto;
+      &:hover{
+        opacity: 0.5 ;      
+      }
+    }
+    &__text{
+      margin: 8px 0 0;
+    }
+  }
+}
+// テンプレ
+.buy-items-textTemplate{
+  display: flex;
+  justify-content: space-between;
+  &__left{
+    font-weight: bold;
+    margin: 0;
+    font-size: 14px;
+  }
+  &__right{
+    color: #0099e8;
+    text-decoration: none;
+    &:hover{
+      opacity: 0.5 ;
+      text-decoration:underline ;
+    }
+  }
+
+}
