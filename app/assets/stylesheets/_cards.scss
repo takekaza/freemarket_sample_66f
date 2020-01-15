@@ -286,7 +286,7 @@
         width: 100%;
         position: relative;
         text-align: center;
-        background-image: url("mypage.png");
+        background-image: image-url("mypage.png");
         background-repeat: no-repeat;
         background-size: cover;
         .myimg{
@@ -299,6 +299,10 @@
           cursor: pointer;
           .topimg{
             height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            background-image: image-url("logo_white.svg");
+            background-repeat: no-repeat;
           }
           h2{
             font-weight: bold;
