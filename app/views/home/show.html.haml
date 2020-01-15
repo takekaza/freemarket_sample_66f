@@ -1,31 +1,30 @@
 .content
   %section.chapter-container.mypageidentification
-    %h2.chapter_head
-      本院情報の登録
-    %form(action="#", class="single-innner",)
+    %h2.chapter-head
+      本人情報の登録
+    %form.single-innner
       .box
         %p お客さまの本人情報をご登録ください。
         %br
-           登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
         %p.text-right
           %a 本人確認書類のアップロードについて
       .form-group
-        %p お名前
+        %label お名前
         %p ジョン　万次郎
       .form-group
-        %p お名前カナ
+        %label お名前カナ
         %p ジョン　マンジロウ
       .form-group
-        %p 生年月日
+        %label 生年月日
         %p 2000/01/01
-      .form-grouo
+      .form-group
         %label{for: "zip_code"} 郵便番号
         %span.form-arbitray 任意
         %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
-            .form-grouo
+      .form-group
         %label{for: "prefacture"} 都道府県
         %span.form-arbitray 任意
-        %input.input-default{name: "prefacture", type: "text", value: ""}
         .select-wrap
           %i.fas.fa-angle-bottom
           %select.select-default
@@ -75,7 +74,7 @@
             %option 熊本県
             %option 大分県
             %option 宮崎県
-            %option 鹿児n>
+            %option 鹿児島県
             %option 沖縄県
         
       .form-group
