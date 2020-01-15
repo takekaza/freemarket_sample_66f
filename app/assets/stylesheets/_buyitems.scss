@@ -7,8 +7,6 @@
     
     &--logo{
       margin: 0 auto;
-      background-image: url(fmarket_logo_red.svg);
-      background-repeat: no-repeat;
       width: 185px;
       height: 49px;
       line-height: 49px;
@@ -243,6 +241,7 @@
       background-image: url(logo_gray.svg);
       display: block;
       background-repeat:no-repeat ;
+      background-size: cover;
       margin:  0 auto;
       &:hover{
         opacity: 0.5 ;      

@@ -1,6 +1,7 @@
 %body
   %header.buy-items__header
-    %a.buy-items__header--logo{:href => "#"}
+    = link_to root_path, class: "buy-items__header--logo" do
+      = image_tag "fmarket_logo_red.svg", class: "buy-items__header--logo", alt:"logo"
   .buy-items__main
     .buy-items__main__text
       購入内容の確認
@@ -68,6 +69,7 @@
         %li.buy-items__footer__list--ul--li プライバシーポリシー
         %li.buy-items__footer__list--ul--li メルカリ利用規約
         %li.buy-items__footer__list--ul--li 特定商取引に関する表記
-    %a.buy-items__footer__logo{:href => ""}
+    = link_to root_path, class: "buy-items__footer__logo" do
+      = image_tag "logo_gray.svg", class: ".buy-items__footer__logo"
     .buy-items__footer__text
       © Mercari, Inc.
