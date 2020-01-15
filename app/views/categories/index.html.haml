@@ -1,0 +1,75 @@
+%body
+  %header.buy-items__header
+    = link_to root_path, class: "buy-items__header--logo" do
+      = image_tag "fmarket_logo_red.svg", class: "buy-items__header--logo", alt:"logo"
+  .buy-items__main
+    .buy-items__main__text
+      購入内容の確認
+    .buy-items__main__item
+      .buy-items__main__item--inner
+        .buy-items__main__item--inner--box
+          .buy-items__main__item--inner--box__left
+          .buy-items__main__item--inner--box__right
+            .buy-items__main__item--inner--box__right__name
+              グッチ バンブー オードトワレ 50ml
+            .buy-items__main__item--inner--box__right__fee
+              .buy-items__main__item--inner--box__right__fee__value
+                ¥7,000
+              .buy-items__main__item--inner--box__right__fee__tax
+                （税込）送料込み
+    .buy-items__main__pay
+      .buy-items__main__pay--inner
+        .buy-items__main__pay--inner--box
+          .buy-items__main__pay--inner--box__value
+            .buy-items__main__pay--inner--box__value__left
+              支払い金額
+            .buy-items__main__pay--inner--box__value__right
+              ¥7,000
+          .buy-items__main__pay--inner--box__point
+            .buy-items__main__pay--inner--box__point--box
+              .buy-items__main__pay--inner--box__point--box__check
+                %i.fas.fa-square
+              .buy-items__main__pay--inner--box__point__box__text
+                ポイントを使用 (所持ポイント: P0)
+          .buy-items__main__pay--inner--box__way
+            .buy-items__main__pay--inner--box__way--inner
+              .buy-items-textTemplate
+                .buy-items-textTemplate__left
+                  支払い方法
+                .buy-items-textTemplate__right
+                  変更する
+              .buy-items__main__pay--inner--box__way--inner__information
+                .buy-items__main__pay--inner--box__way--inner__information__text
+                  クレジットカード
+                .buy-items__main__pay--inner--box__way--inner__information__int
+                  ************1234
+                .buy-items__main__pay--inner--box__way--inner__information__period
+                  有効期限 11 / 11
+              .buy-items__main__pay--inner--box__way--inner__bland
+          .buy-items__main__pay--inner--box__adress
+            .buy-items__main__pay--inner--box__adress--inner
+              .buy-items-textTemplate
+                .buy-items-textTemplate__left
+                  配送先
+                .buy-items-textTemplate__right
+                  変更する
+              .buy-items__main__pay--inner--box__adress--inner--information
+                .buy-items__main__pay--inner--box__adress--inner--information__post
+                  〒150-0041
+                .buy-items__main__pay--inner--box__adress--inner--information__adress
+                  東京都渋谷区神南１丁目１２−１６
+                .buy-items__main__pay--inner--box__adress--inner--information__name
+                  山本 太郎
+          .buy-items__main__pay--inner--box__btn
+            .buy-items__main__pay--inner--box__btn--red-btn
+              購入する
+  %footer.buy-items__footer
+    .buy-items__footer__list
+      %ul.buy-items__footer__list--ul
+        %li.buy-items__footer__list--ul--li プライバシーポリシー
+        %li.buy-items__footer__list--ul--li メルカリ利用規約
+        %li.buy-items__footer__list--ul--li 特定商取引に関する表記
+    = link_to root_path, class: "buy-items__footer__logo" do
+      = image_tag "logo_gray.svg", class: ".buy-items__footer__logo"
+    .buy-items__footer__text
+      © Mercari, Inc.

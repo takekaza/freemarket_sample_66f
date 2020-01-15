@@ -3,7 +3,6 @@
 |------|----|-------| 
 |name|string|null: false| 
 |email|string|null: false| 
-|address|string|null: false| 
 |password|string|null: false| 
 �
 ### Association 
