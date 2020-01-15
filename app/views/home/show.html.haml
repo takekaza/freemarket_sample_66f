@@ -1,0 +1,43 @@
+.content
+  %section.chapter-container-mypageidentification
+    %h2.chapter_head
+      本院情報の登録
+    %form(action="#", class="single-innner",)
+      .box
+        %p お客さまの本人情報をご登録ください。
+        %br
+           登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.text-right
+          %a 本人確認書類のアップロードについて
+      .form-group
+        %p お名前
+        %p ジョン　万次郎
+      .form-group
+        %p お名前カナ
+        %p ジョン　マンジロウ
+      .form-group
+        %p 生年月日
+        %p 2000/01/01
+      .form-grouo
+        %label{for: "zip_code"} 郵便番号
+        %span.form-arbitray 任意
+        %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
+            .form-grouo
+        %label{for: "prefacture"} 都道府県
+        %span.form-arbitray 任意
+        %input.input-default{name: "prefacture", type: "text", value: ""}
+        .select-wrap
+      .form-group
+        %label{for: "city"} 市区町村
+        %span.form-arbitray 任意
+        %input.input-default{name: "city", placeholder: "横浜市緑区", type: "text", class: "input-default"}
+      .form-group
+        %label{for: "address1"} 番地
+        %span.form-arbitray 任意
+        %input.input-default{name: "address1", placeholder: "例）青山1-1-1", type: "text", class: "input-default"}
+      .form-group
+        %label{for: "address2"} 建物
+        %span.form-arbitray 任意
+        %input.input-default{name: "address2", placeholder: "例）青山ビル", type: "text", class: "input-default"}
+        <button type="submit" class="btn-default btn-red">登録する</button>
+      .form-group.text-raight
