@@ -13,17 +13,26 @@
 }
 
 
-button{
-  position: absolute;
-  font-size:14px;
-  top: 0;
-  right: 0;
-  padding: 4px 6px;
-  background: #fff;
-  border-radius: 3px;
+.btn-red{
+  background: rgb(240, 103, 10);
   border: 1px solid #ea352d;
-  color: rgb(240, 103, 10);
+  color: #fff;
 }
+
+.btn-default{
+  margin: 40px 0 0 0;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+
 
 .chapter-container{
   margin: 0 auto;
