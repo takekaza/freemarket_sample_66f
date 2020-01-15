@@ -29,7 +29,7 @@
       max-width: 950px;
       &__img {
         background-repeat: no-repeat;
-        width: 100px;
+        width: 150px;
         height: 100%;
       }
       &__form {
@@ -150,7 +150,7 @@
         height: 400px;
         margin: 0 auto;
         width: -webkit-fill-available;
-        background-image: image-url('home2.png');
+        background-image: image-url("home2.png");
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;

@@ -296,7 +296,7 @@
           width: 100%;
           position: relative;
           text-align: center;
-          background-image: url("mypage.png");
+          background-image: image-url("mypage.png");
           background-repeat: no-repeat;
           background-size: cover;
           .myimg{
@@ -313,7 +313,7 @@
               width: 100%;
               position: absolute;
               left: 30%;
-              background-image: url("logo_white.svg");
+              background-image: image-url("logo_white.svg");
               background-repeat: no-repeat;
             }
             &__form{
