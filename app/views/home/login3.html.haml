@@ -1,0 +1,27 @@
+.single-main
+  .login-panel
+    .login-noaccount
+      %p アカウントをお持ちでない方はこちら
+      %a 新規会員登録
+      %form(action="#")
+
+    .login-form-inner
+      %button.btn-default.btn-sns.btn-sns-facebook{type: "button"}
+        %i.fab.fa-facebook-f
+        %p Facebookでログイン 
+      %button.btn-default.btn-sns.btn-sns-google{type: "button"}
+        %i.fab.fa-google-g
+        %p Googleでログイン 
+
+    %form
+      .login.form-inner
+        .form-group
+          %input.input-default.input-text{name: "email", placeholder: "メールアドレス", type: "email", value: ""}
+        .form-group
+          %input.input-default.input-text{name: "password", placeholder: "パスワード", type: "password", value: ""}
+        .form-group
+          .g-recapcha.login-capcha
+          %button.login-submit.btn-default.btn-red{type: "submit"}
+            ログイン
+          %a
+            パスワードをお忘れの方
