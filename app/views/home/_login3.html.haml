@@ -1,3 +1,6 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
 .single-main
   .login-panel
     .login-noaccount
@@ -13,7 +16,7 @@
         %i.fab.fa-google-g
         %p Googleでログイン 
 
-    %form
+        %form
         .form-group
           %input.input-default.input-text{name: "email", placeholder: "メールアドレス", type: "email", value: ""}
         .form-group
@@ -21,6 +24,13 @@
         .form-group
           .g-recapcha.login-capcha
           %button.login-submit.btn-default.btn-red{type: "submit"}
+          <button
+          class="g-recaptcha"
+          data-sitekey="your_site_key"
+          data-callback="YourOnSubmitFn">
+          Submit
+          </button>
             ログイン
+            
           %a
             パスワードをお忘れの方
