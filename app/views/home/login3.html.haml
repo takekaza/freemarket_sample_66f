@@ -6,15 +6,14 @@
       %form(action="#")
 
     .login-form-inner
-      %button.btn-default.btn-sns.btn-sns-facebook{type: "button"}
+      %button.btn-default.btn-sns.btn-sns-facebook#facebooklogin{type: "button"}
         %i.fab.fa-facebook-f
         %p Facebookでログイン 
-      %button.btn-default.btn-sns.btn-sns-google{type: "button"}
+      %button.btn-default.btn-sns.btn-sns-google#googlelogin{type: "button"}
         %i.fab.fa-google-g
         %p Googleでログイン 
 
     %form
-      .login.form-inner
         .form-group
           %input.input-default.input-text{name: "email", placeholder: "メールアドレス", type: "email", value: ""}
         .form-group
