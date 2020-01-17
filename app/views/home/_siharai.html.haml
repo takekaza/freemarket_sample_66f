@@ -18,4 +18,9 @@
         .form-group
           %span.bold 有効期限
           %span.form-require 必須
+<<<<<<< Updated upstream
+=======
+
+          != sprintf(f.date_select(:expiration_date,with_css_classes:'XXXXX', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+>>>>>>> Stashed changes
         
