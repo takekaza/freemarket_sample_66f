@@ -141,10 +141,10 @@
         .login-form-inner
           %button.btn-default2.btn-sns.btn-sns-facebook#facebooklogin{type: "button"}
             %i.fab.fa-facebook-square
-            %p 　　　　Facebookでログイン 
+            %p.center Facebookでログイン 
           %button.btn-default2.btn-sns.btn-sns-google#googlelogin{type: "button"}
             %i.fab.fa-google
-            %p 　　　　　Googleでログイン 
+            %p.center Googleでログイン 
           %form
             .form-group
               %input.input-default.input-text{name: "email", placeholder: "メールアドレス", type: "email", value: ""}
@@ -154,9 +154,11 @@
               .g-recaptcha.login-captcha{data:{sitekey: "6Lf61c8UAAAAANwz2z_TVw038N91BPsuaE5KNakL"}}
               
             %button.login-submit.btn-default2.btn-red{type: "submit"}
-              ログイン
+              %p.center ログイン
                 
-            %a
-              パスワードをお忘れの方
+          %a.pass-forget
+            %br
+            %br
+            パスワードをお忘れの方
 
             <script src="https://www.google.com/recaptcha/api.js"></script>
