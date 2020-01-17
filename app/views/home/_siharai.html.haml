@@ -1,3 +1,21 @@
 .wrapper{style: 'background: white;'}
   .single-main
     %h2.single-head-registration  支払い方法
+    %form.single-inner.registration-form
+      .single-content
+        .form-group
+          %span.bold カード番号
+          %span.form-require 必須
+        %input.input-default.input-text{name: "cardnumber", placeholder: "半角数字のみ", type: "email", value: ""}
+        %i.fas.fa-angle-right
+        %i.fas.fa-angle-right
+        %i.fas.fa-angle-right
+        %i.fas.fa-angle-right
+        %i.fas.fa-angle-right
+        %i.fas.fa-angle-right
+        %i.fas.fa-angle-right
+        %br
+        .form-group
+          %span.bold 有効期限
+          %span.form-require 必須
+        
