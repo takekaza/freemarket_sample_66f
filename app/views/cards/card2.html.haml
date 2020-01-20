@@ -1,0 +1,24 @@
+.container
+  .content
+    %section.content__chapter
+      %h2.chapter__head 支払い方法
+      .chapter__inner
+        %section
+          .chapter__inner__title
+            %h3.chapter__inner__title__text クレジットカード一覧
+          .chapter__inner__setting-card
+            %ul.chapter__inner__setting-card__list
+              %li
+                %form
+                  %figure
+                    = image_tag "Mastercard-logo.svg",width:"28px",height:"20px", alt:"masca"
+                  .chapter__inner__setting-card__list__payment_number
+                    ************2303
+                  .chapter__inner__setting-card__list__payment_day
+                    09 / 24
+                  %button.settings-payment-remove
+                    削除する
+        .setting-not-resist
+          = link_to "#", class: ".setting-not-resist" do
+            %span 支払い方法について
+            %i.fas.fa-angle-right
