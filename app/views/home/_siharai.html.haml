@@ -27,22 +27,24 @@
           %span.form-require 必須
           .select-wrap
             .select-wrap-half
-              = f.select :exp_month,[["01"], ["02"], ["03"], ["04"], ["05"], ["06"], ["07"], ["08"], ["09"], ["10"], ["11"], ["12"]],id:"exp_month"
+              %label
+              = f.select :exp_month,[["01"], ["02"], ["03"], ["04"], ["05"], ["06"], ["07"], ["08"], ["09"], ["10"], ["11"], ["12"]],{},class:"input-default"
               %i.fa.fa-angle-down
               %span
-                月
+                　月
             .select-wrap-half
-              = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],id: "exp_year"
+              %label
+              = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{},class:"input-default"
               %i.fa.fa-angle-down
-          .security-code
-          %h2 
-            セキュリティーコード 
-            %span 必須
-          = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
-          .pop
-          %i.fa.fa-question-circle 
-          %h4{class: "popup"}
-            カード裏面の番号とは？
-          #card_token
-          = submit_tag "次へ進む", id: "token_submit", class:"next--btn"
+              %span
+                　年
+        .form-group
+          %label.bold セキュリティコード
+          %span.form-require 必須
+          = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", class: "input-default"
+          .input-cvc
+            %i.fa.fa-question-circle.text-right
+            %p.text-right カード裏面の番号とは？
+          %br
+          = submit_tag "次へ進む", id: "token_submit", class:"btn-red input-default"
         
