@@ -11,17 +11,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "items#index"
-  get 'items/confirm'
-  get 'cards/card'
-  get 'cards/card2'
-  get 'items/siharai'
 
-  resources :cards, only: [:index, :new, :create]
+
+  resources :cards, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
+  end
   resources :items, only: [:index, :new, :show]
   resources :brands, only: [:index, :new]
   resources :categories, only:[:index]
