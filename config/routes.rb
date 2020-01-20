@@ -27,7 +27,12 @@ Rails.application.routes.draw do
   get 'categories/index'
 
   resources :cards, only: [:index, :new, :create]
-  resources :items
+  resources :items, only: [:index, :new, :show]
+    collection do
+    post 'show', to: 'card#show'
+    post 'pay', to: 'card#pay'
+    post 'delete', to: 'card#delete'
+  end
   resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
   resources :images
