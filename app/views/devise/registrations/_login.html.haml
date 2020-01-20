@@ -1,0 +1,31 @@
+.wrapper
+  .single-main
+    .login-panel
+      .single-content
+        .login-noaccount
+          %p アカウントをお持ちでない方はこちら
+          %a 新規会員登録
+          %form(action="#")
+        .login-form-inner
+          %button.btn-default2.btn-sns.btn-sns-facebook#facebooklogin{type: "button"}
+            %i.fab.fa-facebook-square
+            %p.center Facebookでログイン 
+          %button.btn-default2.btn-sns.btn-sns-google#googlelogin{type: "button"}
+            %i.fab.fa-google
+            %p.center Googleでログイン 
+          %form
+            .form-group
+              %input.input-default.input-text{name: "email", placeholder: "メールアドレス", type: "email", value: ""}
+            .form-group
+              %input.input-default.input-text{name: "password", placeholder: "パスワード", type: "password", value: ""}
+            .form-group
+              .g-recaptcha.login-captcha{data:{sitekey: "6Lf61c8UAAAAANwz2z_TVw038N91BPsuaE5KNakL"}}
+
+            %button.login-submit.btn-default2.btn-red{type: "submit"}
+              %p.center ログイン
+
+          %a.pass-forget
+            %br
+            %br
+            パスワードをお忘れの方
+            <script src="https://www.google.com/recaptcha/api.js"></script>

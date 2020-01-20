@@ -1,0 +1,20 @@
+.wrapper{style: 'background: white;'}
+  .single-main
+    %h2.single-head-registration  電話番号の確認
+    %form.single-inner.registration-form
+      .single-content
+        .form-group
+          %p.bold 携帯電話の番号
+          %input.input-default.input-text{name: "phonenumber", placeholder: "携帯電話の番号を入力", type: "email", value: ""}
+        %br
+        %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        .form-group
+          %button.login-submit.btn-default2.btn-red{type: "submit"}
+            %p.center SMSを送信する
+        %br
+        %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        %br
+        .form-group
+        %p.text-right
+          %a 電話番号の確認が必要な理由
+          %i.fas.fa-angle-right

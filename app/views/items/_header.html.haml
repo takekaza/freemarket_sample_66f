@@ -16,8 +16,26 @@
           = icon('fas', 'tags', class: 'boxbar__list--icon')
           ブランドから探す
       .boxbar__end
-        = link_to "#", class: "boxbar__end--sinup" do
+      - if user_signed_in?
+        %ul.myboxbar_end
+          %li.myboxbar_end--li
+            = link_to "#", class: "myboxbar_end--li" do
+              = icon('far', 'heart', class: 'myboxbar_end--li--icon')
+              いいね！一覧
+          %li.myboxbar_end--li
+            = link_to "#", class: "myboxbar_end--li" do
+              = icon('far', 'bell', class: 'myboxbar_end--li--icon')
+              お知らせ
+          %li.myboxbar_end--li
+            = link_to "#", class: "myboxbar_end--li" do
+              = icon('fas', 'check', class: 'myboxbar_end--li--icon')
+              やることリスト
+          %li.myboxbar_end--li
+            = link_to cards_path, class: "myboxbar_end--li" do
+              マイページ
+      - else
+        = link_to new_user_registration_path, class: "boxbar__end--sinup" do
           新規会員登録
-        = link_to cards_path, class: "boxbar__end--login" do
+        = link_to new_user_session_path, class: "boxbar__end--login" do
           ログイン
 
