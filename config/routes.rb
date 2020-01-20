@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   get 'brands/index'
   get 'categories/index'
 
-
   resources :cards, only: [:index, :new, :create]
   resources :items
   resources :brands, only: [:index, :new, :show]
