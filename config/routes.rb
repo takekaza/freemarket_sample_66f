@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'items/confirm'
   get 'cards/card'
   get 'cards/card2'
+  get 'items/siharai'
 
   resources :cards, only: [:index, :new, :create]
   resources :items, only: [:index, :new, :show]
