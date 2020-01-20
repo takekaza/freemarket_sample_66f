@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   get 'items/siharai'
 
   resources :cards, only: [:index, :new, :create]
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
   resources :items, only: [:index, :new, :show]
   resources :brands, only: [:index, :new]
   resources :categories, only:[:index]
