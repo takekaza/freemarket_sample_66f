@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'cards/card2'
   get 'home/show'
   get 'brands/index'
+  get 'categories/index'
 
   resources :cards, only: [:index, :new, :create]
   resources :items, only: [:index, :new, :show]
