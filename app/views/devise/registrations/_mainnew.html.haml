@@ -1,0 +1,55 @@
+.mainnew
+  .mainnew__center
+    .mainnew__center__top
+      会員情報入力
+    .mainnew__center__formbox
+      .mainnew__center__formbox__namepass
+      = form_for(@user, url: user_registration_path) do |f|
+        = render "devise/shared/error_messages", resource: @user
+        .mainnew__center__formbox__namepass__field
+          = f.label :ニックネーム
+          %em.form-require
+            必須
+          %br/
+          = f.text_field :name, class:'newform', placeholder:'例）エフマケ次郎'
+        .mainnew__center__formbox__namepass__field
+          = f.label :メールアドレス
+          %em.form-require
+            必須 
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class:'newform', placeholder:'PC・携帯どちらでも可'
+        .mainnew__center__formbox__namepass__field
+          = f.label :パスワード 
+          - if @minimum_password_length
+            %em.form-require
+              必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class:'newform', placeholder:'６文字以上の半角英数字'
+        .mainnew__center__formbox__namepass__field
+          = f.label :パスワード再確認
+          %em.form-require
+            必須 
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class:'newform', placeholder:'６文字以上の半角英数字'
+          %p  ＊英数字と数字の両方を含めて設定してください
+        .mainnew__center__formbox__namepass__checkfield
+          =check_box_tag :check1
+          =label_tag :check1, "パスワードを表示する"
+        .mainnew__center__formbox__namepass__checktext
+          %h3 本人確認
+          %p  安心・安全にご利用いただくために、お客さまの本人
+          %p  情報の登録にご協力ください。他のお客様に公開され
+          %p  ることはありません。
+        .mainnew__center__formbox__namepass__field
+
+        %p.pass_comment
+          ＊本人情報は正しく入力してください。会員登録後、
+          修正するにはお時間を頂く場合がございます。
+        %h3.pass_comment 『次へ進む』のボタンを押すことにより、利用規約に
+        %h3 同意したものとみなします
+        .actions
+          = f.submit "次へ進む", class: "btn-gradient-3d"
+      .mainnew__center__formbox__next_bar--right
+      = link_to "#", class: "bar--right" do
+        本人情報の登録について>
+      .mainnew__center__formbox--next_bar--bottom
