@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :show]
   resources :brands, only: [:index, :new]
   resources :categories, only:[:index]
+  get 'test', to: 'cards#card2'
 
 end
