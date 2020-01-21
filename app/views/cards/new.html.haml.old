@@ -1,0 +1,5 @@
+.wrapper
+  = render "newheader"
+  = render "siharai"
+  = render "sell"
+  = render "footer"
