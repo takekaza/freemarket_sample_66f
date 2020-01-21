@@ -1,0 +1,39 @@
+.addressnew
+  .addressnew__addcenter
+    .addressnew__addcenter__addtop
+      お届け先住所入力
+    .addressnew__addcenter__addmain
+      .addressnew__addcenter__addmain__addform
+      = form_for @address do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .addressnew__addcenter__addmain__addform__addfield
+          = f.label :郵便番号
+          %em.form-require
+            必須 
+          %br/
+          = f.text_field :post_number, class:'newform', placeholder:"例）123-4567"
+        .addressnew__addcenter__addmain__addform__addfield
+          = f.label :都道府県
+          %em.form-require
+            必須 
+          %br/
+          = f.text_field :prefecture, class:'newform', placeholder:"例）青森県"
+        .addressnew__addcenter__addmain__addform__addfield
+          = f.label :市区町村
+          %em.form-require
+            必須 
+          %br/
+          = f.text_field :city, class:'newform', placeholder:"例）横浜市緑区"
+        .addressnew__addcenter__addmain__addform__addfield
+          = f.label :番地
+          %em.form-require
+            必須 
+          %br/
+          = f.text_field :town, class:'newform', placeholder:"例）青山1-1-1"
+        .addressnew__addcenter__addmain__addform__addfield
+          = f.label :建物
+          %br/
+          = f.text_field :building, class:'newform', placeholder:"例）アジアビル"
+        .actions
+          = f.submit "次へ進む", class: "btn-gradient-3d"
+        //= render "devise/shared/links"

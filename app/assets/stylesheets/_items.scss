@@ -124,6 +124,15 @@
           }
         }
       }
+      .myboxbar_end{
+        &--li{
+          display: inline-block;
+          cursor: pointer;
+          text-decoration: none;
+          color: black;
+          padding: 0 2px;
+        }
+      }
     }
     .myboxbar{
       display: flex;
