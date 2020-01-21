@@ -25,7 +25,7 @@
                 いいね！一覧
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
           %li.sub-bar__list__mypage1--box1
-            = link_to new_brand_path, class: "sub-bar__list__mypage1--box1" do
+            = link_to "#", class: "sub-bar__list__mypage1--box1" do
               #text
                 出品する
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
@@ -92,11 +92,11 @@
           %li.sub-bar__list__mypage3--third
             #text
               設定
-          %li.sub-bar__list__mypage3--box3
-            = link_to new_card_path, class: "sub-bar__list__mypage3--box3" do
+          %li.sub-bar__list__mypage1--top
+            = link_to "#", class: "sub-bar__list__mypage1--top" do
               #text
                 プロフィール
-              = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
+              = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--top--icon')
           %li.sub-bar__list__mypage3--box3
             = link_to "#", class: "sub-bar__list__mypage3--box3" do
               #text
@@ -122,20 +122,106 @@
               #text
                 電話番号の確認
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
-          %li.sub-bar__list__mypage1--top
-            = link_to new_item_path, class: "sub-bar__list__mypage1--top" do
+          %li.sub-bar__list__mypage3--box3
+            = link_to new_item_path, class: "sub-bar__list__mypage3--box3" do
               #text
                 ログアウト
-              = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--top--icon')
+              = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
 
-
-
-    .logoutcontainer
-    
-      .content
-        .content__sum
-          = link_to destroy_user_session_path, method: :delete, class: "a" do
-            ログアウト
-
-
+    %section.chapter-container.mypageidentification
+      %h2.chapter-head
+        本人情報の登録
+      %form.single-innner
+        .box
+          %p お客さまの本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.text-right
+            %a 本人確認書類のアップロードについて
+            %i.fas.fa-angle-right
+            
+        .form-group
+          %label お名前
+          %p ジョン万次郎
+        .form-group
+          %label お名前カナ
+          %p ジョンマンジロウ
+        .form-group
+          %label 生年月日
+          %p 2000/01/01
+        .form-group
+          %label{for: "zip_code"} 郵便番号
+          %span.form-arbitray 任意
+          %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
+        .form-group
+          %label{for: "prefacture"} 都道府県
+          %span.form-arbitray 任意
+          .select-wrap
+            %i.fas.fa-angle-bottom
+            %select.select-default
+              %option --
+              %option 北海道
+              %option 青森県
+              %option 岩手県
+              %option 宮城県
+              %option 秋田県
+              %option 山形県
+              %option 福島県
+              %option 東京都
+              %option 神奈県
+              %option 埼玉県
+              %option 千葉県
+              %option 茨城県
+              %option 栃木県
+              %option 群馬県
+              %option 山梨県
+              %option 新潟県
+              %option 長野県
+              %option 富山県
+              %option 石川県
+              %option 福井県
+              %option 愛知県
+              %option 岐阜県
+              %option 静岡県
+              %option 三重県
+              %option 大阪府
+              %option 兵庫県
+              %option 京都府
+              %option 滋賀県
+              %option 奈良県
+              %option 和歌山県
+              %option 鳥取県
+              %option 島根県
+              %option 岡山県
+              %option 広島県
+              %option 山口県
+              %option 徳島県
+              %option 香川県
+              %option 愛媛県
+              %option 高知県
+              %option 福岡県
+              %option 佐賀県
+              %option 長崎県
+              %option 熊本県
+              %option 大分県
+              %option 宮崎県
+              %option 鹿児島県
+              %option 沖縄県
+        .form-group
+          %label{for: "city"} 市区町村
+          %span.form-arbitray 任意
+          %input.input-default{name: "city", placeholder: "横浜市緑区", type: "text", class: "input-default"}
+        .form-group
+          %label{for: "address1"} 番地
+          %span.form-arbitray 任意
+          %input.input-default{name: "address1", placeholder: "例）青山1-1-1", type: "text", class: "input-default"}
+        .form-group
+          %label{for: "address2"} 建物
+          %span.form-arbitray 任意
+          %input.input-default{name: "address2", placeholder: "例）青山ビル", type: "text", class: "input-default"}
+          <button type="submit" class="btn-default btn-red">登録する</button>
+        .form-group
+        %p.text-right
+          %a 本人情報の登録について
+          %i.fas.fa-angle-right
 

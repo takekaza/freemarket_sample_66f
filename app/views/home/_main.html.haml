@@ -4,11 +4,11 @@
     .sub-bar
       .sub-bar__list
         %ul.sub-bar__list__mypage1
-          %li.sub-bar__list__mypage1--box1
-            = link_to cards_path, class: "sub-bar__list__mypage1--box1" do
+          %li.sub-bar__list__mypage1--top
+            = link_to "#", class: "sub-bar__list__mypage1--top" do
               #text
                 マイページ
-              = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
+              = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--top--icon')
           %li.sub-bar__list__mypage1--box1
             = link_to "#", class: "sub-bar__list__mypage1--box1" do
               #text
@@ -25,7 +25,7 @@
                 いいね！一覧
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
           %li.sub-bar__list__mypage1--box1
-            = link_to new_brand_path, class: "sub-bar__list__mypage1--box1" do
+            = link_to "#", class: "sub-bar__list__mypage1--box1" do
               #text
                 出品する
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
@@ -122,20 +122,11 @@
               #text
                 電話番号の確認
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
-          %li.sub-bar__list__mypage1--top
-            = link_to new_item_path, class: "sub-bar__list__mypage1--top" do
+          %li.sub-bar__list__mypage3--box3
+            = link_to new_item_path, class: "sub-bar__list__mypage3--box3" do
               #text
                 ログアウト
-              = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--top--icon')
-
-
-
-    .logoutcontainer
-    
-      .content
-        .content__sum
-          = link_to destroy_user_session_path, method: :delete, class: "a" do
-            ログアウト
+              = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
 
 
 

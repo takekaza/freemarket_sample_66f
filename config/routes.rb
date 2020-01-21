@@ -9,10 +9,19 @@ Rails.application.routes.draw do
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+  get 'cards/card' #暫定的に_が外れてます
+  get 'cards/card2'
+  get 'home/show'
+  get 'brands/index'
+  get 'categories/index'
+
   resources :cards, only: [:index, :new, :create]
   resources :items, only: [:index, :new, :show] do
     # resources :images, only: [:index, :show]
   end
   resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
+
 end
