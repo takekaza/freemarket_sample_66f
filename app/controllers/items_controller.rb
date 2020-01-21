@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   def index
     @item = Item.includes(:user)
-    # @items = Item.all
     @image = Image.all
   end
 

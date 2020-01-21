@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cards, only: [:index, :new, :create]
   resources :items, only: [:index, :new, :show] do
-    # resources :images, only: [:index, :show]
   end
   resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
