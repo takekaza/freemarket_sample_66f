@@ -9,8 +9,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
-    redirect_to root_path
+    @item = Item.new(item_params)
+    if @item.save
+      # 保存に成功した時の処理
+      redirect_to root_path
+    else
+      # 保存に失敗した時の処理
+      render :new
+    end
   end
 
   def show
