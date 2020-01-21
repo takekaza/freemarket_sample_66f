@@ -15,8 +15,11 @@
       justify-content: space-around;
       max-width: 950px;
       &__img {
+        a{
+          
+        }
         background-repeat: no-repeat;
-        width: 100px;
+        width: 150px;
         height: 100%;
       }
       &__form {
@@ -64,6 +67,8 @@
         }
       }
       .myboxbar_end{
+        display: flex;
+        align-items: center;
         &--li{
           display: inline-block;
           cursor: pointer;
@@ -73,6 +78,30 @@
           
           &--icon{
             color: rgb(200, 200, 200);
+          }
+          &:hover{
+            color: #38aef0;
+          }
+          
+        }
+        &--myli{
+          text-decoration: none;
+          color: black;
+          padding: 0 2px;
+          display: flex;
+          align-items: center;
+          
+          &--img{
+            border-radius: 50%;
+            border-style: none;
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            background-image: image-url("logo_white.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
           }
           &:hover{
             color: #38aef0;
@@ -587,7 +616,7 @@
         width: 30%;
         font-size: 20px;
         color: whitesmoke;
-        margin-left: 60px;
+        margin-left: 110px;
         top: 30px;
       }
       p{

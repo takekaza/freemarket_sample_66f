@@ -1,11 +1,11 @@
 .itemshowmain
   .itemzone
     %p.itemzone__name
-      〇〇〇〇　夜景
+      = @item.name
     .itemzone__content
       .itemzone__content__photo
         .itemzone__content__photo__box
-          .itemzone__content__photo__box__top
+          = image_tag "#{@images["url"]}", class: "itemzone__content__photo__box__top", alt:"logo"
           .itemzone__content__photo__box__bar
       .itemzone__content__table
         .itemzone__content__table__day
@@ -14,7 +14,7 @@
               出品者
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                {current_user}
+                = current_user.name
               .itemzone__content__table__day__tr__td__smile
                 .itemzone__content__table__day__tr__td__smile__box1
                   = icon('fas', 'grin-hearts', class: 'itemzone__content__table__day__tr__td__smile__box1--icon1')
@@ -33,13 +33,13 @@
               カテゴリー
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                絶景
+                家電・家具
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               ブランド
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                夜景
+                Amazon
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               商品の状態
@@ -60,7 +60,7 @@
               配送元地域
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                横浜
+                東京都
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               発送日の目安
@@ -69,26 +69,27 @@
 
     .itemzone__yen
       %span.itemzone__yen__1
-        ¥10,000
+        ¥ #{@item.price}
       %span.itemzone__yen__2
         (税込)
       %span.itemzone__yen__3
         送料込み
-    = link_to "#", class: "itemzone__btn" do
+    = link_to categories_path, class: "itemzone__btn" do
       購入画面に進む
     .itemzone__text
       %p.itemzone__text__area
-        "◎19FW week1 販売分◎
+        "◎2019年　12月購入しました◎
         ★即購入OK★即日出荷★
-        supremeオンラインで完売した人気アイテムです。
+        知る人ぞ知るAmazon人気アイテムです。
 
-        商品名:Small Zip Pouch
-        カラー:Black
+        商品名:Amazon Echo
+        カラー:white
         サイズ:16×11㎝
-        購入先:supremeオンライン
-        付属品:ステッカー
+        購入先:ビックカメラ
+        付属品:なし
 
-        ウィンターシーズンだとスノボのパス入れなどに使えます！
+        購入後、部屋のインテリアに合わなかったので出品です。
+
     .itemzone__bar
       .itemzone__bar__left
         %button.itemzone__bar__left__iine
@@ -118,10 +119,10 @@
     %li.page__left
       = icon('fas', 'chevron-left', class: 'page__left--icon')
       = link_to "#", class: "page__left" do
-        〇〇〇〇　夜景
+        シーリングファン
     %li.page__right
       = link_to "#", class: "page__right" do
-        〇〇〇〇　夜景
+        iPhone x white
         = icon('fas', 'chevron-right', class: 'page__right--icon')
 
   .iconzone
