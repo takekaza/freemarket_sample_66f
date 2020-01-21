@@ -39,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def destroy
-
+    
   end
 
   # GET /resource/edit

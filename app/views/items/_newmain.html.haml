@@ -5,7 +5,7 @@
       .sub-bar__list
         %ul.sub-bar__list__mypage1
           %li.sub-bar__list__mypage1--box1
-            = link_to "#", class: "sub-bar__list__mypage1--box1" do
+            = link_to cards_path, class: "sub-bar__list__mypage1--box1" do
               #text
                 マイページ
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
@@ -25,7 +25,7 @@
                 いいね！一覧
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
           %li.sub-bar__list__mypage1--box1
-            = link_to "#", class: "sub-bar__list__mypage1--box1" do
+            = link_to new_brand_path, class: "sub-bar__list__mypage1--box1" do
               #text
                 出品する
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
@@ -93,7 +93,7 @@
             #text
               設定
           %li.sub-bar__list__mypage3--box3
-            = link_to "#", class: "sub-bar__list__mypage3--box3" do
+            = link_to new_card_path, class: "sub-bar__list__mypage3--box3" do
               #text
                 プロフィール
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
