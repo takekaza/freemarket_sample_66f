@@ -1,7 +1,7 @@
 .wrapper{style: 'background: white;'}
   .single-main
     %h2.single-head-registration  支払い方法
-    = form_with id: "charge-form", url: "/cards", method: :post, local: true do |f|
+    = form_with id: "charge-form", url: "pay_card_path", method: :post, local: true do |f|
       .single-content
         .form-group
           %label.bold カード番号
