@@ -91,5 +91,5 @@ end
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'payjp'
-gem jquery-rails
+gem "jquery-rails"
 
