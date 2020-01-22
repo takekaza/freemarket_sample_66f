@@ -16,8 +16,10 @@ class CardsController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
+      amount: 300,
       card: params['payjp-token'],
-      metadata: {user_id: current_user.id}
+      metadata: {user_id: current_user.id},
+      currency: 'jpy'
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
