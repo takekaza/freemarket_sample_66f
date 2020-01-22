@@ -26,4 +26,6 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
+  has_many :addresses
+  has_many :cards
 end
