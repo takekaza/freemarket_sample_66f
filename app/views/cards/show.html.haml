@@ -9,20 +9,20 @@
           .chapter__inner__setting-card
             %ul.chapter__inner__setting-card__list
               %li
-                %form
+                = form_with url: delete_cards_path, method: :post, local: true, id: 'charge-form' do |f|
+                  -# カードブランドのアイコンを表示する場合-----
                   %figure
-                    = image_tag "Mastercard-logo.svg",width:"28px",height:"20px", alt:"masca"
-                  .chapter__inner__setting-card__list__payment_number
-                     = "**** **** **** " + @customer_card.last43
-                  .chapter__inner__setting-card__list__payment_day
-                  - exp_month = @customer_card.exp_month.to_s
-                  - exp_year = @customer_card.exp_year.to_s.slice(2,3)
-                  %h3
+                    = image_tag "credit-cards/#{@card_src}", width: '26', height: '20', alt: @card_brand, id: "card_image"
+                  -#----------------------------------
+                  .content__credit-cards__list--pay-num
+                    = "**** **** **** " + @default_card_information.last4
+                  .content__credit-cards__list--pay-num
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                     = exp_month + " / " + exp_year
-                  = form_tag(card_delete_path, method: :post, id: 'charge-form',  name: "inputForm") do
-                  %input{ type: "hidden", name: "card_id", value: "" }
-                  %button 削除する
-        .setting-not-resist
-          = link_to "#", class: ".setting-not-resist" do
-            %span 支払い方法について
-            %i.fas.fa-angle-right
+                  %input{type: "hidden", name: "card_id", value: ""}
+                  = f.submit "削除する", {class: "content__credit-cards__list__remove"}
+        -# .setting-not-resist
+        -#   = link_to "#", class: ".setting-not-resist" do
+        -#     %span 支払い方法について
+        -#     %i.fas.fa-angle-right
