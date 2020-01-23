@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2020_01_21_072836) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "card_id", null: false
+    t.string "customer_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "url"
@@ -72,4 +80,5 @@ ActiveRecord::Schema.define(version: 2020_01_21_072836) do
   end
 
   add_foreign_key "sns_credentials", "users"
+  add_foreign_key "cards", "users"
 end
