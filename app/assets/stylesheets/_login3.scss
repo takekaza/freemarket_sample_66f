@@ -60,6 +60,50 @@
   font-size: 16px;
   }
 
+  .form-arbitray{
+    background: #ccc;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+
+  .text-right{
+    text-align: right;
+    color: #0099e8;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-red{
+    background: rgb(240, 103, 10);
+    border: 1px solid #ea352d;
+    color: #fff;
+
+    i{
+      line-height: 48px;
+      margin-left: 15px;
+    }
+    p{
+      margin:0 auto;
+    }
+  }
+
+  .btn-default2{
+    margin: 16px 0 0 0;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    display:flex;
+    line-height:48px;
+  }
+
   .single-main{
     width: 100%;
     min-width:343px;
@@ -83,6 +127,17 @@
       margin-bottom: 40px;
     }
 
+    .single-main__buyitem{
+      max-width: 343px;
+      margin: 0 auto;
+
+      &__inner{
+        &__payprice{
+        font-size: 18px;
+        font-weight: bold;
+        }
+      }
+    }
     .single-content{
       max-width: 343px;
       margin: 0 auto;
@@ -149,8 +204,6 @@
     }
 
     &__buyitem{
-      text-align: center;
-      margin: 0 auto;
 
       &__inner{
         

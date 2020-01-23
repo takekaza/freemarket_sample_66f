@@ -2,6 +2,8 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def index
+    @user = User.find_by(params[:id])
+    @address = Address.find_by(user_id: current_user.id)
     @card = Card.where(user_id: current_user.id).first
 
     if @card.blank?
