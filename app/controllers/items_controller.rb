@@ -14,9 +14,7 @@ class ItemsController < ApplicationController
 
 
   end
-  def show
-    @images = Image.find(params[:id])
-  end
+
 
   def create
 
@@ -37,6 +35,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+
+
+  def show
+   
+    @images = Image.find(params[:id])
+    @brand = Brand.find(params[:id])
 
   end
 
