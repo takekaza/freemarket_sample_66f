@@ -4,8 +4,10 @@
     line-height: 48px;
     border: #ccc 1px solid;
     margin-bottom: 40px;
-    p{
-      margin:0 auto;
+    a{
+      .goog{
+        margin:0 auto;
+      }
     }
     i{
       line-height: 48px;
@@ -22,9 +24,11 @@
       line-height: 48px;
       margin-left: 10px;
     }
-    p{
-      margin:0 auto;
-
+    a{
+      .face{
+        margin:0 auto;
+  
+      }
     }
   }
   
@@ -164,6 +168,17 @@
     text-align: center;
     display:flex;
     line-height:48px;
+    text-decoration: none;
+    a{
+      text-decoration: none;
+      margin: 0 auto;
+      .face{
+        color: white;
+      }
+      .goog{
+        color: black;
+      }
+    }
   }
 
   .list-li{
