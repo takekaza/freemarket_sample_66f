@@ -1,7 +1,7 @@
 
 .bodyitemsell
   %header.add-item__header
-    = link_to root_path, class: "add-item__header--logo" do
+    = link_to root_path, class: "add-item__header--logo"
   .add-item__main
     .add-item__main--top
       %h1
@@ -255,7 +255,7 @@
           %p また、出品をもちまして加盟店規約に同意したことになります。
         %button.add-item__main--bottom--btn__red-btn
           出品する
-        .add-item__main--bottom--btn__gray-btn
+        = link_to root_path, class: "add-item__main--bottom--btn__gray-btn" do
           もどる
     %footer.add-item__footer
       .add-item__footer__list
