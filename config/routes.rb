@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   resources :items
   resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
+  resources :images
 
 end
