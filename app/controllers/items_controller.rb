@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index,:new, :create,:show]
+  before_action :set_item, except: [:index,:new, :create]
   def index
     @item = Item.includes(:user)
     @image = Image.all   
