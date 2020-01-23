@@ -19,4 +19,10 @@ FactoryBot.define do
 
   end
 
+  # factory :item do
+  #   name {"Amazon echo white"}
+  #   price {"3000"}
+
+  #   user
+  # end
 end

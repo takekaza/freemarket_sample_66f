@@ -1,0 +1,51 @@
+.footer
+  .under
+    %ul.under__list
+      %li.under__list--img
+        = image_tag "footer-img.png", class: "under__list--img", alt:"logo"
+    %p.under__title
+      %span#top
+        スマホで遊べます！
+        %br
+      %span#center
+        フリマアプリ！
+        %br
+      %span#bottom
+        Fmarket !
+
+  .under-bar
+    .under-bar__box1
+      %h2
+        Fmarketについて
+      %ul.title
+        %li.list
+          会社概要
+        %li.list
+          採用情報
+        %li.list
+          プレスリリース
+        %li.list
+          公式ブログ
+      %ul.link
+        %li.link__list
+          =link_to "https://www.wantedly.com/", class: "link__list" do
+            Wantedly
+        %li.link__list
+          =link_to "https://www.facebook.com/", class: "link__list" do
+            = icon('fab', 'facebook-square', class: "link__list--icon")
+        %li.link__list
+          =link_to "https://twitter.com/", class: "link__list" do
+            = icon('fab', 'twitter', class: "link__list--icon")
+    .under-bar__box2
+      %h2
+        ヘルプ・ガイド
+      %ul.title
+        %li.list
+          Fmarketガイド
+    .under-bar__box3
+
+    .under-bar__bottom
+      %h3
+        Fmarket
+      %p
+        Fmarket, Inc.

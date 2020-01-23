@@ -1,0 +1,215 @@
+.itemshowmain
+  .itemzone
+    %p.itemzone__name
+      = @item.name
+    .itemzone__content
+      .itemzone__content__photo
+        .itemzone__content__photo__box
+          = image_tag "#{@images["url"]}", class: "itemzone__content__photo__box__top", alt:"logo"
+          .itemzone__content__photo__box__bar
+      .itemzone__content__table
+        .itemzone__content__table__day
+          .itemzone__content__table__day__tr
+            .itemzone__content__table__day__tr__th
+              出品者
+            .itemzone__content__table__day__tr__td
+              = link_to "#", class: "" do
+                = current_user.name
+              .itemzone__content__table__day__tr__td__smile
+                .itemzone__content__table__day__tr__td__smile__box1
+                  = icon('fas', 'grin-hearts', class: 'itemzone__content__table__day__tr__td__smile__box1--icon1')
+                  %span.itemzone__content__table__day__tr__td__smile__box1__num
+                    2
+                .itemzone__content__table__day__tr__td__smile__box2
+                  = icon('fas', 'grin', class: 'itemzone__content__table__day__tr__td__smile__box2--icon2')
+                  %span.itemzone__content__table__day__tr__td__smile__box2__num
+                    2
+                .itemzone__content__table__day__tr__td__smile__box3
+                  = icon('fas', 'grin-beam-sweat', class: 'itemzone__content__table__day__tr__td__smile__box3--icon3')
+                  %span.itemzone__content__table__day__tr__td__smile__box3__num
+                    2
+          .itemzone__content__table__day__tr
+            .itemzone__content__table__day__tr__th
+              カテゴリー
+            .itemzone__content__table__day__tr__td
+              = link_to "#", class: "" do
+                家電・家具
+          .itemzone__content__table__day__tr
+            .itemzone__content__table__day__tr__th
+              ブランド
+            .itemzone__content__table__day__tr__td
+              = link_to "#", class: "" do
+                Amazon
+          .itemzone__content__table__day__tr
+            .itemzone__content__table__day__tr__th
+              商品の状態
+            .itemzone__content__table__day__tr__td
+              新品・未使用
+          .itemzone__content__table__day__tr
+            .itemzone__content__table__day__tr__th
+              配送料の負担
+            .itemzone__content__table__day__tr__td
+              送料込み(出品者負担)
+          .itemzone__content__table__day__tr
+            .itemzone__content__table__day__tr__th
+              配送の方法
+            .itemzone__content__table__day__tr__td
+              らくらくFマケ便
+          .itemzone__content__table__day__tr
+            .itemzone__content__table__day__tr__th
+              配送元地域
+            .itemzone__content__table__day__tr__td
+              = link_to "#", class: "" do
+                東京都
+          .itemzone__content__table__day__tr
+            .itemzone__content__table__day__tr__th
+              発送日の目安
+            .itemzone__content__table__day__tr__td
+              1~2日で発送
+
+    .itemzone__yen
+      %span.itemzone__yen__1
+        ¥ #{@item.price}
+      %span.itemzone__yen__2
+        (税込)
+      %span.itemzone__yen__3
+        送料込み
+    = link_to categories_path, class: "itemzone__btn" do
+      購入画面に進む
+    .itemzone__text
+      %p.itemzone__text__area
+        = @item.text
+
+    .itemzone__bar
+      .itemzone__bar__left
+        %button.itemzone__bar__left__iine
+          = icon('far', 'heart', class: 'itemzone__bar__left__iine--icon')
+          %span.itemzone__bar__left__iine__font
+            いいね!
+          %span.itemzone__bar__left__iine__num
+            ６
+        = link_to "#", class: "itemzone__bar__left__link" do
+          不適切な商品の広告
+      
+      = link_to "#", class: "itemzone__bar__right" do
+        = icon('fas', 'lock', class: 'itemzone__bar__right--icon')
+        あんしん・あんぜんへの取り組み
+
+  .formzone
+    .commentzone
+      .commentzone__top
+        %p.commentzone__top__content
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+      %textarea.commentzone__text{name: "content", placeholder: "", type: "text"}
+
+    = link_to "#", class: "formzone__btn" do
+      コメントする
+  %ul.page
+    %li.page__left
+      = icon('fas', 'chevron-left', class: 'page__left--icon')
+      = link_to "#", class: "page__left" do
+        シーリングファン
+    %li.page__right
+      = link_to "#", class: "page__right" do
+        iPhone x white
+        = icon('fas', 'chevron-right', class: 'page__right--icon')
+
+  .iconzone
+    .iconzone__tex
+    %ul.iconzone__ul
+      %li
+        =link_to "https://www.facebook.com/", class: "iconzone__ul__face" do
+          = icon('fab', 'facebook-square', class: "iconzone__ul__face--icon")
+      %li
+        =link_to "https://twitter.com/", class: "iconzone__ul__twi" do
+          = icon('fab', 'twitter', class: "iconzone__ul__twi--icon")
+      %li.iconzone__ul__pas
+        =link_to "https://www.pinterest.jp/", class: "iconzone__ul__pas" do
+          = icon('fab', 'pinterest', class: "iconzone__ul__pas--icon")
+
+  .itemsubzone
+    %h2.itemsubzone__name
+      = link_to "#", class: "" do
+        〇〇のその他の出品
+    .itemsubzone__box
+      .itemsubzone__box__item
+        = link_to "#", class: "" do
+          .itemsubzone__box__item__photo
+          .itemsubzone__box__item__content
+            %p.itemsubzone__box__item__content__title
+              Fmarket ロゴ　ステッカー
+            .itemsubzone__box__item__content__bottom
+              %span.itemsubzone__box__item__content__bottom__yen
+                ¥10,000
+              .itemsubzone__box__item__content__bottom__right
+                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                %span.itemsubzone__box__item__content__bottom__right__num
+                  3
+      .itemsubzone__box__item
+        = link_to "#", class: "" do
+          .itemsubzone__box__item__photo
+          .itemsubzone__box__item__content
+            %p.itemsubzone__box__item__content__title
+              Fmarket ロゴ　ステッカー
+            .itemsubzone__box__item__content__bottom
+              %span.itemsubzone__box__item__content__bottom__yen
+                ¥10,000
+              .itemsubzone__box__item__content__bottom__right
+                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                %span.itemsubzone__box__item__content__bottom__right__num
+                  3
+      .itemsubzone__box__item
+        = link_to "#", class: "" do
+          .itemsubzone__box__item__photo
+          .itemsubzone__box__item__content
+            %p.itemsubzone__box__item__content__title
+              Fmarket ロゴ　ステッカー
+            .itemsubzone__box__item__content__bottom
+              %span.itemsubzone__box__item__content__bottom__yen
+                ¥10,000
+              .itemsubzone__box__item__content__bottom__right
+                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                %span.itemsubzone__box__item__content__bottom__right__num
+                  3
+      .itemsubzone__box__item
+        = link_to "#", class: "" do
+          .itemsubzone__box__item__photo
+          .itemsubzone__box__item__content
+            %p.itemsubzone__box__item__content__title
+              Fmarket ロゴ　ステッカー
+            .itemsubzone__box__item__content__bottom
+              %span.itemsubzone__box__item__content__bottom__yen
+                ¥10,000
+              .itemsubzone__box__item__content__bottom__right
+                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                %span.itemsubzone__box__item__content__bottom__right__num
+                  3
+      .itemsubzone__box__item
+        = link_to "#", class: "" do
+          .itemsubzone__box__item__photo
+          .itemsubzone__box__item__content
+            %p.itemsubzone__box__item__content__title
+              Fmarket ロゴ　ステッカー
+            .itemsubzone__box__item__content__bottom
+              %span.itemsubzone__box__item__content__bottom__yen
+                ¥10,000
+              .itemsubzone__box__item__content__bottom__right
+                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                %span.itemsubzone__box__item__content__bottom__right__num
+                  3
+      .itemsubzone__box__item
+        = link_to "#", class: "" do
+          .itemsubzone__box__item__photo
+          .itemsubzone__box__item__content
+            %p.itemsubzone__box__item__content__title
+              Fmarket ロゴ　ステッカー
+            .itemsubzone__box__item__content__bottom
+              %span.itemsubzone__box__item__content__bottom__yen
+                ¥10,000
+              .itemsubzone__box__item__content__bottom__right
+                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                %span.itemsubzone__box__item__content__bottom__right__num
+                  3
+
+

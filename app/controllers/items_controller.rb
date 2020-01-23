@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index,:new, :create]
   def index
-   
+    @item = Item.includes(:user)
+    @image = Image.all   
   end
 
   def new
@@ -13,6 +14,10 @@ class ItemsController < ApplicationController
 
 
   end
+  def show
+    @item = Item.find(params[:id])
+    @images = Image.find(params[:id])
+  end
 
   def create
 
@@ -22,8 +27,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-
-    
   end
   
   def update
@@ -35,12 +38,17 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    
+
   end
+
+
+
+  
 
   private
   def item_params
     params.require(:item).permit(:name,:text,:price,:condition,:berser,:way,:region,:date,:size, :price, images_attributes: [:url,:_destroy,:id],category_attributes: [:name],brand_attributes: [:name]).merge(user_id: current_user.id)
+
 
   end
 

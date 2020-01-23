@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root "items#index"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -10,10 +10,16 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root "items#index"
+
+  get 'cards/card' #暫定的に_が外れてます
+  get 'cards/card2'
+  get 'home/show'
+  get 'brands/index'
+  get 'categories/index'
+
   resources :cards, only: [:index, :new, :create]
-  resources :items, except: [:show] do
- 
-  end
+  resources :items
+  resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
+
 end

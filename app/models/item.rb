@@ -16,7 +16,4 @@ class Item < ApplicationRecord
   validates :berser, presence: true,exclusion: { in: %w(---) }
   validates :region, presence: true,exclusion: { in: %w(---) }
 
-
-
-
 end
