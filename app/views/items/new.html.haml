@@ -1,7 +1,8 @@
 %body
 = form_for [@item] do |f|
   %header.add-item__header
-    %a.add-item__header--logo{:href => "/"}
+    = link_to root_path, class: "buy-items__header--logo" do
+      = image_tag "fmarket_logo_red.svg", class: "buy-items__header--logo", alt:"logo"
   .add-item__main
   
     .add-item__main--top
