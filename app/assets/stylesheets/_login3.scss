@@ -27,6 +27,17 @@
 
     }
   }
+
+  .delete_btn{
+    position: absolute;
+    top: 48px;
+    right: 0;
+    padding: 2px 6px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #ea352d;
+    color: #ea352d;
+  }
   
   .input-default2{
   width: 100%;
@@ -67,20 +78,17 @@
       max-width: 343px;
       margin: 0 auto;
 
+      ul{
+        padding-top: 10px;
+        padding-bottom: 30px;
+      }
+
+      ul li{
+        display: inline-block;
+      }
+
       .form-group{
-
-        ul{
-          padding-top: 10px;
-          padding-bottom: 30px;
-        }
-
-        ul li{
-          display: inline-block;
-        }
-
-        ////年月選択のform
         .select-wrap{ 
-          
           select{
             width:100px;
             appearance: none;
@@ -97,6 +105,17 @@
 
           .select-wrap-half:last-child{
           margin-bottom:30px;
+          }
+
+          .select-wrap-half{
+            display: inline-block;
+            width: calc(50% - 2px);
+
+            span{
+              margin-left: 20px;
+            }
+
+            
           }
 
         .input-cvc{
@@ -118,6 +137,36 @@
       .bold{
        font-weight: bold;
       }
+    }
+
+    &__buyitem{
+      text-align: center;
+      margin: 0 auto;
+
+      &__inner{
+        
+
+        &__box{
+          display: flex;
+
+          &__detail{
+            margin-left: 16px;
+            &__name{
+              font-size: 14px;
+              margin: 0;
+              padding: 0 0 8px;
+              line-height: 1.5;
+              text-align: left;
+            }
+
+
+          }
+  
+        }
+
+      }
+
+ 
     }
 
   }
