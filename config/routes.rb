@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
 
   resources :cards, only: [:index, :new, :create]
-  resources :items, only: [:index, :new, :show]
+  resources :items
   resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
 
