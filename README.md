@@ -9,6 +9,7 @@
 - has_many :cards dependent: :destroy
 - has_many :items dependent: :destroy
 - has_many :addresses dependent: :destroy
+- has_many :telephones dependent: :destroy
 �
 ## itemsテーブル 
 |Column|Type|Options| 
@@ -105,6 +106,15 @@
 ### Association
 - belongs_to :user
 
+
+## telephonesテーブル
+|Column|Type|Options| 
+|------|----|-------|
+|user_id|integer|foreign_key:true|
+|phone_number|string|null:false|
+
+### Association
+- belongs_to :user
 
 
 
