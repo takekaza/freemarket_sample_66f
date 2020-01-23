@@ -5,7 +5,7 @@
       .form-group
       %label.bold カード番号
       %span.form-require 必須
-      = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+      = text_field_tag "number", "", class: "number input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
       %ul
         %li 
           =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2482339763", size: "49x20",alt:"visa"
@@ -26,7 +26,7 @@
         %span.form-require 必須
         .select-wrap
           .select-wrap-half
-            %select#exp_month{name: "exp_month", type: "text"}
+            %select#exp_month{name: "exp_month", type: "text", class: "input-default"}
               %option{value: ""} --
               %option{value: "1"}01
               %option{value: "2"}02
@@ -44,9 +44,8 @@
             %span
               月
           .select-wrap-half
-            %select#exp_year{name: "exp_year", type: "text"}
+            %select#exp_year{name: "exp_year", type: "text", class: "input-default"}
               %option{value: ""} --
-              %option{value: "2019"}19
               %option{value: "2020"}20
               %option{value: "2021"}21
               %option{value: "2022"}22
@@ -63,6 +62,6 @@
       .form-group
         %label.bold セキュリティコード
         %span.form-require 必須
-    = text_field_tag "cvc", "", class: "cvc input-default", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
-    #card_token
-    = submit_tag "追加する", id: "token_submit", class:"btn-red input-default"
+        = text_field_tag "cvc", "", class: "cvc input-default", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+        #card_token
+        = submit_tag "追加する", id: "token_submit", class:"btn-red input-default"
