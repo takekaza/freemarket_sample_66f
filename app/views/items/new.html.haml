@@ -165,6 +165,7 @@
           %li.add-item__footer__list--ul--li プライバシーポリシー
           %li.add-item__footer__list--ul--li メルカリ利用規約
           %li.add-item__footer__list--ul--li 特定商取引に関する表記
-      %a.add-item__footer__logo{:href => "/"}
+      = link_to root_path, class: "buy-items__footer__logo" do
+        = image_tag "logo_gray.svg", class: ".buy-items__footer__logo"
       .add-item__footer__text
         © Mercari, Inc.
