@@ -61,7 +61,8 @@
             .single-main__buyitem__userinfo__error__message 
               %a この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
               = form_tag(action: :pay, method: :post) do
-                %button.input-default 購入する
+                %br
+                %button.input-default.btn-desabled 購入する
             .single-main__buyitem__userinfo__error__messageapp
               アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
             .single-main__buyitem__userinfo__error__app-btn
