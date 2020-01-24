@@ -79,7 +79,7 @@
     .itemzone__text
       %p.itemzone__text__area
         = @item.text
-
+    
     .itemzone__bar
       .itemzone__bar__left
         %button.itemzone__bar__left__iine
@@ -94,6 +94,14 @@
       = link_to "#", class: "itemzone__bar__right" do
         = icon('fas', 'lock', class: 'itemzone__bar__right--icon')
         あんしん・あんぜんへの取り組み
+
+  .btnzone
+    = link_to "#", class: "btnzone__edit btndesu" do
+      #text.edit 商品の編集
+    %p.btnzone__center 
+      or
+    %button.btnzone__destroy.btndesu
+      #text.destroy この商品を削除する
 
   .formzone
     .commentzone
