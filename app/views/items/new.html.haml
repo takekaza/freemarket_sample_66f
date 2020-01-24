@@ -1,4 +1,173 @@
-.wrapper
-  = render "newheader"
-  = render "newmain"
-  = render "footer"
+.bodyitemsell
+= form_for [@item] do |f|
+  %header.add-item__header
+    = link_to root_path, class: "buy-items__header--logo" do
+      = image_tag "fmarket_logo_red.svg", class: "buy-items__header--logo", alt:"logo"
+  .add-item__main
+  
+    .add-item__main--top
+    
+      %h1
+        商品の情報を入力
+    
+    .add-item__main--bottom
+      .add-item__main--bottom--image
+        .upload__text
+          %h3
+            出品画像
+            %span.form-require 必須
+          .upload__text--text
+            最大10枚までアップロードできます
+          .upload__image
+            .previews
+              -if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  =image_tag image.url.url,data: {index: i},width:"100",height:'100'
+            =f.fields_for :images do |i|
+              .js-file_group{"data-index" => "#{i.index}"}
+                -# =i.label :url ,class:'upload__image--icon' do
+                  -# ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                  -# = icon('fas', 'camera', class: 'upload__image--icon')
+                =i.file_field :url, class:'upload__image--icon'
+                %br/
+                -# .js-remove 削除
+              -if @item.persisted?
+                =i.check_box :_destroy, data:{index:i.index},class: 'hidden-destroy'
+            -if @item.persisted?
+              .js-file_group{"data-index"=>@item.i.count}
+                = file_field_tag :url, name:"item[images_attributes][#{@item.images.count}][url]",class:'upload__image--icon'
+                .js-remove 削除
+      .add-item__main--bottom--name
+        .add-item__main--bottom--name__name
+          %h3
+            商品名
+            %span.form-require 必須
+          
+            = f.text_field :name, class: 'input-default', placeholder: "商品名（必須 40文字まで)"
+        .add-item__main--bottom--name__text
+          %h3
+            商品の説明
+            %span.form-require 必須
+          
+            = f.text_area :text, class: 'textarea-default', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",:rows => "5"
+      .add-item__main--bottom--category
+        %h3.sub-head
+          商品の詳細
+        .add-item-details
+          .add-item-details__category
+            %h3
+              カテゴリー
+              %span.form-require 必須
+            .select-wrap
+              =f.fields_for :category do |i|
+                = i.select :name, ["\---","レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ","その他"],{},{class:'select-default'}
+              %i.fas.fa-chevron-down
+          .add-item-details__size
+            %h3
+              サイズ
+            .select-wrap
+              
+              = f.select :size, ["\---","XXS以下","XS(SS)","S","M","L","XL(LL)","2XL(3L)","3XL(4L)","4XL(5L)以上"],{},{class:'select-default'}
+            
+            
+            
+              %i.fas.fa-chevron-down
+
+          .add-item-details__brand
+            %h3
+              ブランド
+              
+            .select-wrap
+              =f.fields_for :brand do |i|
+                = i.text_field :name, class: 'input-default', placeholder: "例）シャネル"
+              
+          .add-item-details__condition
+            %h3
+              商品の状態
+              %span.form-require 必須
+            .select-wrap
+
+              = f.select :condition, ["\---","新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"],{},{class:'select-default'}
+
+              %i.fas.fa-chevron-down
+      .add-item__main--bottom--delivery
+        %h3.sub-head
+          配送について
+        .add-item__main--bottom--delivery--form-box
+          .add-item__main--bottom--delivery--form-box__berser
+            %h3
+              発送料の負担
+              %span.form-require 必須
+            .select-wrap
+              
+              = f.select :berser, ["\---","送料込み(出品者負担)","着払い(購入者負担)"],{},{class:'select-default'}
+              %i.fas.fa-chevron-down
+          .add-item__main--bottom--delivery--form-box__way
+            %h3
+              発送の方法
+              %span.form-require 必須
+            .select-wrap
+              
+              = f.select :way, ["\---","未定","らくらくメルカリ便","ゆうメール","レターパック","普通郵便(定形,定形外)"],{},{class:'select-default'}
+              %i.fas.fa-chevron-down
+          
+          .add-item__main--bottom--delivery--form-box__region
+            %h3
+              発送元の地域
+              %span.form-require 必須
+            .select-wrap
+              
+              = f.select :region,["\---","北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県","未定"],{},{class:'select-default'}
+              %i.fas.fa-chevron-down
+          .add-item__main--bottom--delivery--form-box__date
+            %h3
+              発送までの日数
+              %span.form-require 必須
+            .select-wrap
+              
+              = f.select :date, ["\---","1~2日で発送","2~3日で発送","4~7日で発送"],{},{class:'select-default'}
+              %i.fas.fa-chevron-down
+      .add-item__main--bottom--value
+        %h3.sub-head
+          商品の詳細
+        %ul.add-item__main--bottom--value--form-box
+          %li.add-item__main--bottom--value--form-box__value
+            .add-item__main--bottom--value--form-box__value__left
+              %h3
+                価格
+                %span.form-require 必須
+            .add-item__main--bottom--value--form-box__value__right
+              %p ¥
+              .add-item__main--bottom--value--form-box__value__right--form
+                
+                = f.text_field :price, class: 'input-default', placeholder: "例）300"
+          %li.add-item__main--bottom--value--form-box__commission
+            .add-item__main--bottom--value--form-box__commission__left
+              販売手数料
+            .add-item__main--bottom--value--form-box__commission__right
+              \-
+          %li.add-item__main--bottom--value--form-box__profit
+            .add-item__main--bottom--value--form-box__profit__left
+              %h3 販売利益
+            .add-item__main--bottom--value--form-box__profit__right
+              \-
+      .add-item__main--bottom--btn
+        .add-item__main--bottom--btn__text
+          %p 禁止されている出品、行為を必ずご確認ください。
+          %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+          %p また、出品をもちまして加盟店規約に同意したことになります。
+        
+        = f.submit '出品する', class: 'add-item__main--bottom--btn__red-btn'
+        %a.add-item__main--bottom--btn__gray-btn{:href=>"/"}
+          もどる
+    %footer.add-item__footer
+      .add-item__footer__list
+        %ul.add-item__footer__list--ul
+          %li.add-item__footer__list--ul--li プライバシーポリシー
+          %li.add-item__footer__list--ul--li メルカリ利用規約
+          %li.add-item__footer__list--ul--li 特定商取引に関する表記
+      = link_to root_path, class: "buy-items__footer__logo" do
+        = image_tag "logo_gray.svg", class: ".buy-items__footer__logo"
+      .add-item__footer__text
+        © Mercari, Inc.
+

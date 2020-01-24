@@ -9,12 +9,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def index
   end
 
+  def new_sns
+
+  end
   def new
     @user = User.new
   end
 
   # POST /resource
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
+    # super
     @user = User.new(sign_up_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
