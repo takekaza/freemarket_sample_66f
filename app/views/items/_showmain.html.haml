@@ -14,7 +14,7 @@
               出品者
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                = current_user.name
+                = @item.user.name
               .itemzone__content__table__day__tr__td__smile
                 .itemzone__content__table__day__tr__td__smile__box1
                   = icon('fas', 'grin-hearts', class: 'itemzone__content__table__day__tr__td__smile__box1--icon1')
@@ -33,7 +33,7 @@
               カテゴリー
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                家電・家具
+                =@category.name
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               ブランド
@@ -44,28 +44,28 @@
             .itemzone__content__table__day__tr__th
               商品の状態
             .itemzone__content__table__day__tr__td
-              新品・未使用
+              =@item.condition
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               配送料の負担
             .itemzone__content__table__day__tr__td
-              送料込み(出品者負担)
+              =@item.berser
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               配送の方法
             .itemzone__content__table__day__tr__td
-              らくらくFマケ便
+              =@item.way
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               配送元地域
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                東京都
+                =@item.region
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               発送日の目安
             .itemzone__content__table__day__tr__td
-              1~2日で発送
+              =@item.date
 
     .itemzone__yen
       %span.itemzone__yen__1
