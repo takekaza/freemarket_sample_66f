@@ -272,6 +272,7 @@
         white-space: pre-wrap;
       }
     }
+    
     &__bar{
       width: 100%;
       margin: 40px 0 0;
@@ -339,8 +340,45 @@
       }
     }
   }
+  .btnzone{
+    width: 100%;
+    margin: 60px auto 30px;
+    max-width: 860px;
+    height: 250px;
+    background-color: white;
+    padding: 20px;
+    .btndesu{
+      display: block;
+      width: 100%;
+      font-size: 15px;
+      cursor: pointer;
+      text-align: center;
+      transition: all ease-out .4s;
+      line-height: 50px;
+      text-decoration: none;
+      margin: 20px 0 20px;
+    }
+    &__edit{
+      background-color: rgb(240, 103, 10);
+      box-shadow: 0 2px 10px 0 #9E9E9E;
+      .edit{
+        color: white;
+      }
+    }
+    &__center{
+      text-align: center;
+      font-size: 15px;
+    }
+    &__destroy{
+      background-color: rgb(100, 100, 100);
+      box-shadow: 0 2px 10px 0 #9E9E9E;
+      .destroy{
+        color: white;
+      }
+    }
+  }
   .formzone{
-    margin: 50px auto;
+    margin: 30px auto 40px;
     width: 100%;
     max-width: 860px;
     height: 450px;
