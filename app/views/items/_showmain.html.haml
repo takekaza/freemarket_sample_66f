@@ -1,11 +1,11 @@
 .itemshowmain
   .itemzone
     %p.itemzone__name
-      〇〇〇〇　夜景
+      = @item.name
     .itemzone__content
       .itemzone__content__photo
         .itemzone__content__photo__box
-          .itemzone__content__photo__box__top
+          = image_tag "#{@images.url}", class: "itemzone__content__photo__box__top", alt:"logo"
           .itemzone__content__photo__box__bar
       .itemzone__content__table
         .itemzone__content__table__day
@@ -14,7 +14,7 @@
               出品者
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                {current_user}
+                = @item.user.name
               .itemzone__content__table__day__tr__td__smile
                 .itemzone__content__table__day__tr__td__smile__box1
                   = icon('fas', 'grin-hearts', class: 'itemzone__content__table__day__tr__td__smile__box1--icon1')
@@ -33,62 +33,53 @@
               カテゴリー
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                絶景
+                =@category.name
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               ブランド
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                夜景
+                = @brand.name
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               商品の状態
             .itemzone__content__table__day__tr__td
-              新品・未使用
+              =@item.condition
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               配送料の負担
             .itemzone__content__table__day__tr__td
-              送料込み(出品者負担)
+              =@item.berser
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               配送の方法
             .itemzone__content__table__day__tr__td
-              らくらくFマケ便
+              =@item.way
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               配送元地域
             .itemzone__content__table__day__tr__td
               = link_to "#", class: "" do
-                横浜
+                =@item.region
           .itemzone__content__table__day__tr
             .itemzone__content__table__day__tr__th
               発送日の目安
             .itemzone__content__table__day__tr__td
-              1~2日で発送
+              =@item.date
 
     .itemzone__yen
       %span.itemzone__yen__1
-        ¥10,000
+        ¥ #{@item.price}
       %span.itemzone__yen__2
         (税込)
       %span.itemzone__yen__3
         送料込み
-    = link_to "#", class: "itemzone__btn" do
+    = link_to categories_path, class: "itemzone__btn" do
       購入画面に進む
     .itemzone__text
       %p.itemzone__text__area
-        "◎19FW week1 販売分◎
-        ★即購入OK★即日出荷★
-        supremeオンラインで完売した人気アイテムです。
-
-        商品名:Small Zip Pouch
-        カラー:Black
-        サイズ:16×11㎝
-        購入先:supremeオンライン
-        付属品:ステッカー
-
-        ウィンターシーズンだとスノボのパス入れなどに使えます！
+        = @item.text
+    
     .itemzone__bar
       .itemzone__bar__left
         %button.itemzone__bar__left__iine
@@ -104,6 +95,14 @@
         = icon('fas', 'lock', class: 'itemzone__bar__right--icon')
         あんしん・あんぜんへの取り組み
 
+  .btnzone
+    = link_to "#", class: "btnzone__edit btndesu" do
+      #text.edit 商品の編集
+    %p.btnzone__center 
+      or
+    %button.btnzone__destroy.btndesu
+      #text.destroy この商品を削除する
+
   .formzone
     .commentzone
       .commentzone__top
@@ -118,10 +117,10 @@
     %li.page__left
       = icon('fas', 'chevron-left', class: 'page__left--icon')
       = link_to "#", class: "page__left" do
-        〇〇〇〇　夜景
+        シーリングファン
     %li.page__right
       = link_to "#", class: "page__right" do
-        〇〇〇〇　夜景
+        iPhone x white
         = icon('fas', 'chevron-right', class: 'page__right--icon')
 
   .iconzone

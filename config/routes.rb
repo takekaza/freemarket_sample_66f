@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
   root "items#index"
   devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
   }
   devise_scope :user do
+    get 'telephones', to: 'users/registrations#new_telephones'
+    post 'telephones', to: 'users/registrations#create_telephone'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+    get 'users/signup' => 'users/registrations#new_sns', as:"new0_user_registration"
   end
   
+  # omniauthのテスト用
+  # get "auth/:provider" => "authentications#new", as: :new_authentication
+  # get "auth/:provider/callback" => "authentications#create", as: :create_authentication
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 
   get 'cards/card' #暫定的に_が外れてます
   get 'cards/card2'
@@ -16,9 +26,11 @@ Rails.application.routes.draw do
   get 'brands/index'
   get 'categories/index'
 
+
   resources :cards, only: [:index, :new, :create]
-  resources :items, only: [:index, :new, :show]
-  resources :brands, only: [:index, :new]
+  resources :items
+  resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
+  resources :images
 
 end

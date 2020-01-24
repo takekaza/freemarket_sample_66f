@@ -28,6 +28,9 @@
     padding: 40px;
 
     &__mainlogo{
+      
+    }
+    .mainlogo{
       background-repeat: no-repeat;
       width: 185px;
       height: 49px;
@@ -47,10 +50,10 @@
         &__text{
           font-weight: bold;
           font-size: 12px;
-          color: #ea352d;
+          color: grey;
         }
         &__dotto{
-          background-color: #ea352d;
+          background-color: grey;
           width: 12px;
           height: 12px;
           margin: 8px auto 0;
@@ -58,7 +61,7 @@
           z-index: 1;
         }
         &__dotto::after{
-          background-color: #ea352d;
+          background-color: grey;
           position: absolute;
           bottom: 5px;
           display: block;
@@ -70,7 +73,7 @@
           text-decoration: inherit;
         }
         &__dottoto{
-          background-color: #ea352d;
+          background-color: grey;
           width: 12px;
           height: 12px;
           margin: 8px auto 0;
@@ -78,7 +81,7 @@
           z-index: 1;
         }
         &__dottoto::after{
-          background-color: #ea352d;
+          background-color: grey;
           position: absolute;
           bottom: 5px;
           display: block;
@@ -90,20 +93,20 @@
           text-decoration: inherit;
         }
         &__dottoto::before{
-          background-color: #ea352d;
+          background-color: grey;
           position: absolute;
           bottom: 5px;
           display: block;
           right: 24px;
           content: '';
-          width: 100%;
+          width: 149%;
           height: 2px;
           border-style: solid;
           border-width: 0;
           text-decoration: inherit;
         }
         &__dot{
-          background-color: #ea352d;
+          background-color: grey;
           width: 12px;
           height: 12px;
           margin: 8px auto 0;
@@ -111,18 +114,152 @@
           z-index: 1;
         }
         &__dot::before{
+          background-color: grey;
+          position: absolute;
+          bottom: 5px;
+          display: block;
+          right: 18px;
+          content: '';
+          width: 297%;
+          height: 2px;
+          border-style: solid;
+          border-width: 0;
+          text-decoration: inherit;
+        }
+        &__text-red{
+          font-weight: bold;
+          font-size: 12px;
+          color: #ea352d;
+        }
+        &__dotto-red{
+          background-color: #ea352d;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          z-index: 10;
+        }
+        &__dotto-red::after{
+          background-color:#ea352d;
+          position: absolute;
+          bottom: 5px;
+          display: block;
+          content: '';
+          width: 5%;
+          height: 2px;
+          border-style: solid;
+          border-width: 0;
+          text-decoration: inherit;
+          z-index: 0;
+        }
+        &__dottoto-red{
+          background-color: #ea352d;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          z-index: 1;
+        }
+        &__dottoto-red::after{
+          background-color: #ea352d;
+          position: absolute;
+          bottom: 5px;
+          display: block;
+          content: '';
+          width: 35%;
+          height: 2px;
+          border-style: solid;
+          border-width: 0;
+          text-decoration: inherit;
+        }
+        &__dottoto-red::before{
+          background-color: #ea352d;
+          position: absolute;
+          bottom: 5px;
+          display: block;
+          right: 24px;
+          content: '';
+          width: 165%;
+          height: 2px;
+          border-style: solid;
+          border-width: 0;
+          text-decoration: inherit;
+        }
+        &__dot-red{
+          background-color: #ea352d;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          z-index: 1;
+        }
+        &__dot-red::before{
           background-color: #ea352d;
           position: absolute;
           bottom: 5px;
           display: block;
           right: 18px;
           content: '';
-          width: 100%;
+          width: 260%;
           height: 2px;
           border-style: solid;
           border-width: 0;
           text-decoration: inherit;
         }
+        &__dottotott-red{
+          background-color: #ea352d;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          z-index: 10000;
+        }
+        &__dottotott-red::after{
+          background-color: #ea352d;
+          position: absolute;
+          bottom: 5px;
+          display: block;
+          content: '';
+          width: 5%;
+          height: 2px;
+          border-style: solid;
+          border-width: 0;
+          text-decoration: inherit;
+        }
+        &__dottotott-red::before{
+          background-color: #ea352d;
+          position: absolute;
+          bottom: 5px;
+          display: block;
+          right: 24px;
+          content: '';
+          width: 160%;
+          height: 2px;
+          border-style: solid;
+          border-width: 0;
+          text-decoration: inherit;
+        }
+        &__dottotoss{
+          background-color: grey;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          z-index: 1;
+        }
+        &__dottotoss::before{
+          background-color: grey;
+          position: absolute;
+          bottom: 5px;
+          display: block;
+          right: 24px;
+          content: '';
+          width: 200%;
+          height: 2px;
+          border-style: solid;
+          border-width: 0;
+          text-decoration: inherit;
+        }               
       }
     }
   }

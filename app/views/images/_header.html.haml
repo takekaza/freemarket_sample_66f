@@ -1,8 +1,8 @@
 .myheader
   .mybox
     .myboxtop
-      .myboxtop__img
-        = image_tag "fmarket_logo_red.svg", class: "myboxtop__img", alt:"logo"
+      = link_to root_path, class: "" do
+        = image_tag "fmarket_logo_red.svg", class: "myboxtop__itemimg", alt:"logo"
       .myboxtop__form
         %input#keyword.boxtop__form{:placeholder => "何かお探しですか？", :type => "text"}/
         = link_to "#", class: "myboxtop__form" do
@@ -28,6 +28,21 @@
           = link_to "#", class: "myboxbar_end--li" do
             = icon('fas', 'check', class: 'myboxbar_end--li--icon')
             やることリスト
-        %li.myboxbar_end--li
-          = link_to cards_path, class: "myboxbar_end--li" do
+        %li.myboxbar_end--myli
+          = link_to cards_path, class: "myboxbar_end--myli" do
+            .myboxbar_end--myli--img
             マイページ
+
+.mybox-bottom
+  %ul.menulist
+    %li.menulist__sub
+      = link_to root_path, class: "menulist__sub" do
+        %span
+          Fmarket
+        = icon('fas', 'chevron-right', class: 'menulist__sub--icon')
+      = link_to cards_path, class: "menulist__sub" do
+        %span
+          マイページ
+        = icon('fas', 'chevron-right', class: 'menulist__sub--icon')
+        %span.now
+          ログアウト

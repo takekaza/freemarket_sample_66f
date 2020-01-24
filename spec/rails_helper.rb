@@ -37,11 +37,37 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+module OmniauthMocks
+  def facebook_mock
+    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
+      {
+        provider: 'facebook',
+        uid: '12345',
+        info: {
+          name: 'mockuser',
+          email: 'sample@test.com'
+        },
+        # credentials: {
+        #   token: 'hogefuga'
+        # }
+      }
+    )
+  end
+end
+
 RSpec.configure do |config|
-  #config.include FactoryBot::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
+
+  OmniAuth.config.test_mode = true
+  config.include OmniauthMocks
+  # config.include Devise::Test::IntegrationHelpers, type: :request
+  config.before(:all) do
+    FactoryBot.reload
+  end
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
@@ -61,7 +87,7 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
+  
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.

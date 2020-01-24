@@ -10,10 +10,12 @@
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           %button.btn-default2.btn-sns.btn-sns-facebook#facebooklogin{type: "button"}
             %i.fab.fa-facebook-square
-            %p.center Facebookでログイン 
+            = link_to user_facebook_omniauth_authorize_path,  method: :post do
+              #text.face Facebookでログイン 
           %button.btn-default2.btn-sns.btn-sns-google#googlelogin{type: "button"}
             %i.fab.fa-google
-            %p.center Googleでログイン 
+            = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+              #text.goog Googleでログイン
           %form
             .form-newgroup
               = f.label :メールアドレス
