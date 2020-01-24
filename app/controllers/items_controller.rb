@@ -42,6 +42,10 @@ class ItemsController < ApplicationController
    
     @images = Image.find(params[:id])
     @brand = Brand.find(params[:id])
+    @category = Category.find(params[:id])
+    @user_items = Item.where(user_id: @item.user.id).where.not(id: params[:id]).limit(6)
+
+ 
 
   end
 
