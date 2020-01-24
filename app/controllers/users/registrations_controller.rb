@@ -31,17 +31,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @telephone = @user.telephones.build
+    render :new_telephone
+  end
+
+  def create_telephone
+    @user = User.new(session["devise.regist_data"]["user"])
+    @telephone = Telephone.new(telephone_params)
+    unless @telephone.valid?
+      flash.now[:alert] = @telephone.errors.full_messages
+      render :new_telephone and return
+    end
+    session["devise.regist_data"]["telephone"] = @telephone.attributes
     @address = @user.addresses.build
     render :new_address
   end
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
+    @telephone = Telephone.new(session["devise.regist_data"]["telephone"])
     @address = Address.new(address_params)
+   
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
+    @user.telephones.build(@telephone.attributes)
     @user.addresses.build(@address.attributes)
     @user.save
     sign_in(:user, @user)
@@ -88,6 +103,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
+
+  def telephone_params
+    params.require(:telephone).permit(:phone_number, :user_id)
+  end
+
   def address_params
     params.require(:address).permit(:post_number, :prefecture, :city, :town, :building)
   end
