@@ -34,9 +34,5 @@
 .mybox-bottom
   %ul.menulist
     %li.menulist__sub
-      = link_to root_path, class: "menulist__sub" do
-        %span
-          Fmarket
-        = icon('fas', 'chevron-right', class: 'menulist__sub--icon')
-        %span.now
-          マイページ
+    - breadcrumb :information
+    = render "layouts/breadcrumbs"
