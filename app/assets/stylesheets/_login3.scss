@@ -67,6 +67,12 @@
     text-decoration: none;
     cursor: pointer;
   }
+  .text-right2{
+    float:right;
+    color: #0099e8;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
   .btn-red{
     background: rgb(240, 103, 10);
@@ -118,7 +124,7 @@
 
     h2{
       text-align: center;
-      padding: 32px;
+      padding: 12px;
     }
 
     i{
@@ -133,11 +139,37 @@
       margin-bottom: 40px;
     }
 
-    .single-main__buyitem{
+    &__buyitem{
       max-width: 343px;
       margin: 0 auto;
 
       &__inner{
+
+        &__payprice{
+          &__price{
+            text-align: right;
+            margin-top: -30px;
+            
+          }
+        }
+
+        &__box{
+          display: flex;
+
+          &__detail{
+            margin-left: 16px;
+            &__name{
+              font-size: 14px;
+              margin: 0;
+              padding: 0 0 8px;
+              line-height: 1.5;
+              text-align: left;
+            }
+
+
+          }
+  
+        }
 
         &__usepoint{
           color: #888;
@@ -150,6 +182,10 @@
       }
 
       &__userinfo{
+
+        &__title{
+          margin-top: 20px;
+        }
         &__error{
           &__message{
             color: red;
@@ -158,6 +194,7 @@
 
           &__app-btn{
             display: flex;
+            justify-content: space-around; 
           }
 
         }
@@ -226,34 +263,6 @@
       .bold{
        font-weight: bold;
       }
-    }
-
-    &__buyitem{
-
-      &__inner{
-        
-
-        &__box{
-          display: flex;
-
-          &__detail{
-            margin-left: 16px;
-            &__name{
-              font-size: 14px;
-              margin: 0;
-              padding: 0 0 8px;
-              line-height: 1.5;
-              text-align: left;
-            }
-
-
-          }
-  
-        }
-
-      }
-
- 
     }
 
   }
