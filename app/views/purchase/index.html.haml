@@ -1,4 +1,4 @@
-.wrapper  
+.wrapper
   .single-main
     %h2.single-head-registration
       購入内容の確認
@@ -16,18 +16,19 @@
     %section.single-main__buyitem
       .single-main__buyitem__inner
         .single-main__buyitem__inner__payprice
-          %span.single-main__buyitem__inner__payprice__label
-            支払い金額
-          %span.single-main__buyitem__inner__payprice__price
-            ¥1,000
+          .single-main__buyitem__inner__payprice__label
+            %p 支払い金額
+          .single-main__buyitem__inner__payprice__price
+            %p ¥1,000
         .single-main__buyitem__inner__usepoint
-          %input#box1{:type => "checkbox"}/
+          %input#box1{type: "checkbox"}/
           ポイントを使用 (所持ポイント: P0)
         %br
         .single-main__buyitem__userinfo
           .single-main__buyitem__userinfo__title
-            %span 支払い方法
-            %span.text-right 変更する
+            %span.single-main__buyitem__userinfo__title  支払い方法
+            =link_to"#" ,class:"text-right2" do
+              変更する
 
             %p クレジットカード
             - if @default_card_information.blank?
@@ -45,7 +46,8 @@
           %br
           .single-main__buyitem__userinfo__title
             %span 配送先
-            %sapn.text-right 変更する
+            =link_to"#" ,class:"text-right2" do
+              変更する
 
           .single-main__buyitem__userinfo__address
             〒
@@ -65,6 +67,7 @@
                 %button.input-default.btn-desabled 購入する
             .single-main__buyitem__userinfo__error__messageapp
               アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+            %br
             .single-main__buyitem__userinfo__error__app-btn
               .single-main__buyitem__userinfo__error__app-btn__appstore
                 =link_to "#" ,class: "new_item" do
@@ -72,3 +75,4 @@
               .single-main__buyitem__userinfo__error__app-btn__googleplay
                 =link_to "#" ,class: "new_item" do
                   = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "app_box", alt: "app"
+  = render partial: '/cards/smallfooter'
