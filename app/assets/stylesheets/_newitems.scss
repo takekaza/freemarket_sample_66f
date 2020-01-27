@@ -69,16 +69,39 @@
           
         }
         &__image{
-          position: relative;
           min-height: 162px;
           background: #f5f5f5;
           border: 1px dashed #ccc;
+          text-align: center;
+
           &--icon{
-            &--none{
-              display: none;
-            }
+
           }
 
+        }
+      }
+      #image-box{
+        &__container{
+          min-height: 162px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          text-align: center;
+          
+
+        }
+      }
+      .item-image{
+
+        &__operetion{
+          width: 114px;
+          text-align: center;
+          border: 1px solid #eee;
+          &--delete{
+            width: 114px;
+            background: #f5f5f5;
+            line-height: 44px;
+            color: #0099e8;
+          }
         }
       }
 

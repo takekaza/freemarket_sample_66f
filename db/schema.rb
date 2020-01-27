@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_072836) do
+ActiveRecord::Schema.define(version: 2020_01_21_073232) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_number", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "town", null: false
     t.string "building"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_01_21_072836) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "card_id", null: false
+    t.string "customer_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,6 +79,13 @@ ActiveRecord::Schema.define(version: 2020_01_21_072836) do
     t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
+  create_table "telephones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "phone_number", null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -84,5 +100,6 @@ ActiveRecord::Schema.define(version: 2020_01_21_072836) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
   add_foreign_key "sns_credentials", "users"
 end

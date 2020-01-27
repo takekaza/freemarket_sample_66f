@@ -102,7 +102,7 @@
 
   -if current_user == @item.user
     .btnzone
-      = link_to "#", class: "btnzone__edit btndesu" do
+      = link_to edit_item_path(@item.id), class: "btnzone__edit btndesu" do
         #text.edit 商品の編集
       %p.btnzone__center 
         or
@@ -127,6 +127,7 @@
         .commentzone__top
           %p.commentzone__top__content
             相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
 
         %textarea.commentzone__text{name: "content", placeholder: "", type: "text"}
 
