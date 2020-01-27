@@ -25,7 +25,7 @@
                 いいね！一覧
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
           %li.sub-bar__list__mypage1--box1
-            = link_to "#", class: "sub-bar__list__mypage1--box1" do
+            = link_to new_brand_path, class: "sub-bar__list__mypage1--box1" do
               #text
                 出品する
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
@@ -128,5 +128,21 @@
                 ログアウト
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
 
-
-
+    .container
+      .content
+        %section.content__chapter
+          %h2.chapter__head 支払い方法
+          .chapter__inner
+            %section
+              .chapter__inner__title
+                %h3.chapter__inner__title__text クレジットカード一覧
+            %section
+            .chapter__inner__setting-card
+              = link_to cards_path, class: "chapter__inner__setting-card__content", method:"post" do
+                .chapter__inner__setting-card__content
+                  %i.far.fa-credit-card
+                  %p 　クレジットカードを追加する
+            .setting-not-resist
+              = link_to "#", class: ".setting-not-resist" do
+                %span 支払い方法について
+                %i.fas.fa-angle-right

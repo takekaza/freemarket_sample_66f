@@ -17,7 +17,7 @@
           %em.form-require
             必須 
           %br/
-          = f.text_field :prefecture, class:'newform', placeholder:"例）青森県"
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
         .addressnew__addcenter__addmain__addform__addfield
           = f.label :市区町村
           %em.form-require

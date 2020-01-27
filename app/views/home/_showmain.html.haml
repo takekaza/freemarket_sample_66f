@@ -25,7 +25,7 @@
                 いいね！一覧
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
           %li.sub-bar__list__mypage1--box1
-            = link_to "#", class: "sub-bar__list__mypage1--box1" do
+            = link_to new_brand_path, class: "sub-bar__list__mypage1--box1" do
               #text
                 出品する
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage1--box1--icon')
@@ -129,4 +129,56 @@
               = icon('fas', 'chevron-right', class: 'sub-bar__list__mypage3--box3--icon')
 
 
+    .wrapper
+      .content
+        .chapter-container.mypageidentification
+          %h2.chapter-head
+            本人情報の登録
+          .single-innner
+          = form_for '' do |f|
+            .box
+              %p お客さまの本人情報をご登録ください。
+              %br
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              .text-right
+              = link_to "#", class: "bar--right" do
+                本人確認書類のアップロードについて
+                %i.fas.fa-angle-right
+                
+            .form-group
+              %label お名前
+              %p ジョン万次郎
+            .form-group
+              %label お名前カナ
+              %p ジョンマンジロウ
+            .form-group
+              %label 生年月日
+              %p 2000/01/01
+            .form-group
+              = f.label :郵便番号
+              %span.form-arbitray 任意
+              = f.text_field :zip_code, placeholder: "例）1234567", type: "text", value: "", class: "input-default"
+            .form-group
+              = f.label :都道府県
+              %span.form-arbitray 任意
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+              %i.fas.fa-angle-bottom
 
+            .form-group
+              = f.label :市区町村
+              %span.form-arbitray 任意
+              = f.text_field :city, placeholder: "横浜市緑区", class: "input-default"
+            .form-group
+              = f.label :番地
+              %span.form-arbitray 任意
+              = f.text_field :town, placeholder: "例）青山1-1-1", class: "input-default"
+            .form-group
+              = f.label :建物
+              %span.form-arbitray 任意
+              = f.text_field :building, placeholder: "例）青山ビル", class: "input-default"
+            .actions
+              = f.submit "登録する", class: "btn-gradient-3d" 
+            .form-group
+            = link_to "#", class: "bar--right" do
+              本人情報の登録について>
+              %i.fas.fa-angle-rightt
