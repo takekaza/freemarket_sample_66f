@@ -21,10 +21,6 @@ Rails.application.routes.draw do
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
-  root "items#index"
-
-
   resources :cards, only: [:new, :show] do
     collection do
       post 'show', to: 'cards#show'
@@ -33,11 +29,6 @@ Rails.application.routes.draw do
     end
   end
   resources :items, only: [:index, :new, :show]
-    collection do
-    post 'show', to: 'card#show'
-    post 'pay', to: 'card#pay'
-    post 'delete', to: 'card#delete'
-  end
   resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
   resources :images
