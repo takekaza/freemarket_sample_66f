@@ -92,15 +92,11 @@
       }
       .item-image{
 
-        &__content{
-          
-        }
         &__operetion{
           width: 114px;
           text-align: center;
           border: 1px solid #eee;
           &--delete{
-            // display: inline-block;
             width: 114px;
             background: #f5f5f5;
             line-height: 44px;
