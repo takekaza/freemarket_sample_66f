@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   root "items#index"
 
 
+  get 'purchase/index'
+  get 'purchase/done'
+  get 'cards/card'
+  get 'home/show'
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
@@ -20,8 +25,7 @@ Rails.application.routes.draw do
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'purchase/index'
-  get 'purchase/done'
+
   get 'cards/index'
   resources :cards, only: [:new, :show] do
     collection do
