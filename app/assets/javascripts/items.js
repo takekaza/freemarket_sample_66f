@@ -48,3 +48,5 @@ $(function(){
     $(`img[data-index="${targetIndex}"]`).remove();
   });
 });
+
+

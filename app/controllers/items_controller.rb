@@ -22,10 +22,14 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+  def edit
+    @item=Item.find(id:params[:id])
+
+  end
   
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path
     else
       render :edit
     end
@@ -40,6 +44,7 @@ class ItemsController < ApplicationController
 
 
   def show
+
     @images = Image.find_by(params[:id])
     @brand = Brand.find(params[:id])
     @category = Category.find(params[:id])
