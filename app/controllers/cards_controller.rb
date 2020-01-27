@@ -2,6 +2,10 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :set_card, only:[:new,:show,:delete]
 
+  def index
+
+  end
+  
   def new
     redirect_to action: "show" if @card.present?
   end
