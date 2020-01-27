@@ -15,7 +15,6 @@ FactoryBot.define do
     region {"青森県"}
     category_id {6}
     brand_id {27}
-    
 
   end
 

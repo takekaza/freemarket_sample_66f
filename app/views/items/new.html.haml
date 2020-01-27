@@ -18,24 +18,40 @@
             %span.form-require 必須
           .upload__text--text
             最大10枚までアップロードできます
+          -# .upload__image
+          -#   .previews
+          -#     -if @item.persisted?
+          -#       - @item.images.each_with_index do |image, i|
+          -#         =image_tag image.url.url,data: {index: i},width:"100",height:'100'
+          -#   =f.fields_for :images do |i|
+          -#     .js-file_group{"data-index" => "#{i.index}"}
+          -#       -# =i.label :url ,class:'upload__image--icon' do
+          -#         -# ドラッグアンドドロップまたはクリックしてファイルをアップロード
+          -#         -# = icon('fas', 'camera', class: 'upload__image--icon')
+          -#       =i.file_field :url, class:'upload__image--icon'
+          -#       %br/
+          -#       -# .js-remove 削除
+            
+          -#     -if @item.persisted?
+          -#       =i.check_box :_destroy, data:{index:i.index},class: 'hidden-destroy'
+          -#   -if @item.persisted?
+          -#     .js-file_group{"data-index"=>@item.i.count}
+          -#       = file_field_tag :url, name:"item[images_attributes][#{@item.images.count}][url]",class:'upload__image--icon'
+          -#       .js-remove 削除
           .upload__image
             .previews
-              -if @item.persisted?
+              - if @item.persisted?
                 - @item.images.each_with_index do |image, i|
-                  =image_tag image.url.url,data: {index: i},width:"100",height:'100'
-            =f.fields_for :images do |i|
-              .js-file_group{"data-index" => "#{i.index}"}
-                -# =i.label :url ,class:'upload__image--icon' do
-                  -# ドラッグアンドドロップまたはクリックしてファイルをアップロード
-                  -# = icon('fas', 'camera', class: 'upload__image--icon')
-                =i.file_field :url, class:'upload__image--icon'
-                %br/
-                -# .js-remove 削除
+                  = image_tag image.url.url, data: { index: i }, width: "100", height: '100'
+            =f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                =image.file_field :url, class:'upload__image--icon'
+                .js-remove 削除
               -if @item.persisted?
-                =i.check_box :_destroy, data:{index:i.index},class: 'hidden-destroy'
-            -if @item.persisted?
-              .js-file_group{"data-index"=>@item.i.count}
-                = file_field_tag :url, name:"item[images_attributes][#{@item.images.count}][url]",class:'upload__image--icon'
+                =image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.images.count}"}
+                = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
                 .js-remove 削除
       .add-item__main--bottom--name
         .add-item__main--bottom--name__name

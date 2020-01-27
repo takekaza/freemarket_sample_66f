@@ -1,8 +1,9 @@
-$(document).on('turbolinks:load', ()=> {
+$(function(){
+// $(document).on('turbolinks:load',function(){
 
   const buildFileField = (index)=>{
     const html =`<div data-index="${index}" class="js-file_group">
-                    <input class="upload__image--icon" type="file"
+                    <input class="upload__image--icon"type="file"
                     name="item[images_attributes][${index}][url]"
                     id="item_images_attributes_${index}_url"><br>
                     <div class="js-remove">削除</div>
@@ -15,13 +16,13 @@ $(document).on('turbolinks:load', ()=> {
     return html;
   }
   let fileIndex =[1,2,3,4,5,6,7,8,9,10];
+  lastIndex = $('.js-file_group:last').data('index');
+  fileIndex.splice(0, lastIndex);
+  $('.hidden-destroy').hide();  lastIndex
 
 // 値が変わると変数htmlが追加されindexの値が１増える
 
   $('.upload__image').on('change','.upload__image--icon', function(e){
-    // $('.upload__image').append(buildFileField(fileIndex[0]));
-    // fileIndex.shift();
-    // fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     const targetIndex =$(this).parent().data('index');
     const file =e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
@@ -37,6 +38,11 @@ $(document).on('turbolinks:load', ()=> {
   });
   
   $('.upload__image').on('click','.js-remove',function(){
+    
+    const targetIndex = $(this).parent().data('index')
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
     if ($('.upload__image--icon').length == 0)　$ ('.upload__image').append(buildFileField(fileIndex[0]));
     $(`img[data-index="${targetIndex}"]`).remove();

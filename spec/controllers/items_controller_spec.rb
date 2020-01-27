@@ -8,7 +8,8 @@ describe ItemsController, type: :controller do
       item_params = FactoryBot.attributes_for(:item)
       post :create, params: {item:item_params}
       expect(response).to_not redirect_to root_path
-
+    end
+  end
       # 商品一覧表示のテスト
   describe 'GET #index' do
     it "populates an array of items" do
@@ -27,7 +28,17 @@ describe ItemsController, type: :controller do
   describe "GET #show" do
     it "renders the :show template" do
       get :show, params: {id: 1}
+    end
+  end
 
+  # 商品削除のテスト
+  describe "delete #destroy" do
+
+    it "deletes the item" do
+      @item = create_list(:item,1)
+      expect do
+        delete :destroy, params: {item: @item}
+      end.to change(Item,:count).by(-1)
     end
   end
 end
