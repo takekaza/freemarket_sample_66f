@@ -140,8 +140,9 @@
               %p お客さまの本人情報をご登録ください。
               %br
               登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-              %p.text-right
-                %a 本人確認書類のアップロードについて
+              .text-right
+              = link_to "#", class: "bar--right" do
+                本人確認書類のアップロードについて
                 %i.fas.fa-angle-right
                 
             .form-group
@@ -178,6 +179,6 @@
             .actions
               = f.submit "登録する", class: "btn-gradient-3d" 
             .form-group
-            %p.text-right
-              %a 本人情報の登録について
+            = link_to "#", class: "bar--right" do
+              本人情報の登録について>
               %i.fas.fa-angle-rightt
