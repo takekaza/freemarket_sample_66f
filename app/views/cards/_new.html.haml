@@ -1,6 +1,5 @@
 .wrapper
-  = render partial: 'devise/registrations/header4new'
-= form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+= form_tag(user_registration_path, method: :post, id: 'charge-form',  name: "inputForm") do
   .single-main.gray
     %h2.single-head-registration 支払い方法
     .single-content
@@ -67,4 +66,3 @@
         = text_field_tag "cvc", "", class: "cvc input-default", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
         #card_token
         = submit_tag "追加する", id: "token_submit", class:"btn-red input-default"
-  = render partial: 'devise/registrations/footernew'
