@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :telephones, dependent: :destroy
   has_many :sns_credentials
   has_many :items ,dependent: :destroy
+  has_many :addresses
+  has_many :cards
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
@@ -26,6 +28,5 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
-  has_many :addresses
-  has_many :cards
+
 end
