@@ -32,7 +32,6 @@
             - item.images.first(1).each do |image| 
               %figure.itemsubzone__box__item__link__photo
                 = image_tag "#{image.url}"
-                -# = image_tag showimg_item_path(image)
                 %span.itemsubzone__box__item__link__photo__yen
                   #textyen
                     ¥ #{item.price}

@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.includes(:user)
-    @images = Image.find_by(params[:id])
+    @images = Image.all
   end
 
   def new
@@ -35,6 +35,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.destroy
+    else
+      render :index
     end
   end
 
