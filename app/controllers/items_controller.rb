@@ -25,10 +25,14 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+  def edit
+    @item=Item.find_by(id:params[:id])
+
+  end
   
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path
     else
       render :edit
     end
@@ -40,7 +44,7 @@ class ItemsController < ApplicationController
 
   def show
    
-    @images = Image.find(params[:id])
+    @images = Image.find_by(params[:id])
     @brand = Brand.find(params[:id])
     @category = Category.find(params[:id])
     @user_items = Item.where(user_id: @item.user.id).where.not(id: params[:id]).limit(6)
