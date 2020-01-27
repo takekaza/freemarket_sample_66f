@@ -6,14 +6,15 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
+    @images = Image.new(image_params)
 
-  if @image.save
+    if @images.save
       redirect_to root_path
     else
       render :new
     end
   end
+
 
   private
   def image_params

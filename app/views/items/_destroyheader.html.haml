@@ -1,0 +1,48 @@
+.myheader
+  .mybox
+    .myboxtop
+      = link_to root_path, class: "" do
+        = image_tag "fmarket_logo_red.svg", class: "myboxtop__newimg", alt:"logo"
+      .myboxtop__form
+        %input#keyword.boxtop__form{:placeholder => "何かお探しですか？", :type => "text"}/
+        = link_to "#", class: "myboxtop__form" do
+          = icon('fas', 'search', class: 'myboxtop__form--icon')
+    .myboxbar
+      .myboxbar__list
+        = link_to "#", class: "myboxbar__list" do
+          = icon('fas', 'list-ul', class: 'myboxbar__list--icon')
+          カテゴリーから探す
+        = link_to brands_path, class: "myboxbar__list" do
+          = icon('fas', 'tags', class: 'myboxbar__list--icon')
+          ブランドから探す
+      %ul.myboxbar_end
+        %li.myboxbar_end--li
+          = link_to "#", class: "myboxbar_end--li" do
+            = icon('far', 'heart', class: 'myboxbar_end--li--icon')
+            いいね！一覧
+        %li.myboxbar_end--li
+          = link_to "#", class: "myboxbar_end--li" do
+            = icon('far', 'bell', class: 'myboxbar_end--li--icon')
+            お知らせ
+        %li.myboxbar_end--li
+          = link_to "#", class: "myboxbar_end--li" do
+            = icon('fas', 'check', class: 'myboxbar_end--li--icon')
+            やることリスト
+        %li.myboxbar_end--myli
+          = link_to cards_path, class: "myboxbar_end--myli" do
+            .myboxbar_end--myli--img
+            マイページ
+
+.mybox-bottom
+  %ul.menulist
+    %li.menulist__sub
+      = link_to root_path, class: "menulist__sub" do
+        %span
+          Fmarket
+        = icon('fas', 'chevron-right', class: 'menulist__sub--icon')
+      = link_to cards_path, class: "menulist__sub" do
+        %span
+          マイページ
+        = icon('fas', 'chevron-right', class: 'menulist__sub--icon')
+        %span.now
+          出品した商品 - 出品中

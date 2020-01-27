@@ -4,9 +4,14 @@
       = @item.name
     .itemzone__content
       .itemzone__content__photo
-        .itemzone__content__photo__box
-          = image_tag "#{@images.url}", class: "itemzone__content__photo__box__top", alt:"logo"
+        - @item.images.first(1).each do |image| 
+          .itemzone__content__photo__box
+            = image_tag "#{image.url}", class: "itemzone__content__photo__box__top", alt:"logo"
+        
           .itemzone__content__photo__box__bar
+            - @item.images.first(6).each do |image| 
+              = image_tag "#{image.url}", class: "itemzone__content__photo__box__bar__sub", alt:"logo"
+            
       .itemzone__content__table
         .itemzone__content__table__day
           .itemzone__content__table__day__tr
@@ -95,129 +100,262 @@
         = icon('fas', 'lock', class: 'itemzone__bar__right--icon')
         あんしん・あんぜんへの取り組み
 
-  .btnzone
-    = link_to edit_item_path(@item.id), class: "btnzone__edit btndesu" do
-      #text.edit 商品の編集
-    %p.btnzone__center 
-      or
-    %button.btnzone__destroy.btndesu
-      #text.destroy この商品を削除する
+  -if current_user == @item.user
+    .btnzone
+      = link_to edit_item_path(@item.id), class: "btnzone__edit btndesu" do
+        #text.edit 商品の編集
+      %p.btnzone__center 
+        or
+      %button#modal-open-btn.btndesu この商品を削除する
+      =link_to "", id: 'item-delete-btn' do
+        #text.destroy 
+      #overlay
+        #modalmac
+          .modal-message-box
+            %div 確認
+            %div 削除すると二度と復活できません。
+            %div 本当に削除しますか？
+          .modal-message-bottom
+            %button#modal-colose-btn
+              =link_to item_path(@item), id: 'modal-colose-btn' do
+                キャンセル
+            %button#delete-comformation-btn
+              =link_to "/items/#{@item.id}", method: :delete, id: 'item-delete-btn' do
+                削除する
+    .formzone
+      .commentzone
+        .commentzone__top
+          %p.commentzone__top__content
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
 
-  .formzone
-    .commentzone
-      .commentzone__top
-        %p.commentzone__top__content
-          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
 
-      %textarea.commentzone__text{name: "content", placeholder: "", type: "text"}
+        %textarea.commentzone__text{name: "content", placeholder: "", type: "text"}
 
-    = link_to "#", class: "formzone__btn" do
-      コメントする
-  %ul.page
-    %li.page__left
-      = icon('fas', 'chevron-left', class: 'page__left--icon')
-      = link_to "#", class: "page__left" do
-        シーリングファン
-    %li.page__right
-      = link_to "#", class: "page__right" do
-        iPhone x white
-        = icon('fas', 'chevron-right', class: 'page__right--icon')
+      = link_to "#", class: "formzone__btn" do
+        コメントする
+    %ul.page
+      %li.page__left
+        = icon('fas', 'chevron-left', class: 'page__left--icon')
+        = link_to "#", class: "page__left" do
+          シーリングファン
+      %li.page__right
+        = link_to "#", class: "page__right" do
+          iPhone x white
+          = icon('fas', 'chevron-right', class: 'page__right--icon')
 
-  .iconzone
-    .iconzone__tex
-    %ul.iconzone__ul
-      %li
-        =link_to "https://www.facebook.com/", class: "iconzone__ul__face" do
-          = icon('fab', 'facebook-square', class: "iconzone__ul__face--icon")
-      %li
-        =link_to "https://twitter.com/", class: "iconzone__ul__twi" do
-          = icon('fab', 'twitter', class: "iconzone__ul__twi--icon")
-      %li.iconzone__ul__pas
-        =link_to "https://www.pinterest.jp/", class: "iconzone__ul__pas" do
-          = icon('fab', 'pinterest', class: "iconzone__ul__pas--icon")
+    .iconzone
+      .iconzone__tex
+      %ul.iconzone__ul
+        %li
+          =link_to "https://www.facebook.com/", class: "iconzone__ul__face" do
+            = icon('fab', 'facebook-square', class: "iconzone__ul__face--icon")
+        %li
+          =link_to "https://twitter.com/", class: "iconzone__ul__twi" do
+            = icon('fab', 'twitter', class: "iconzone__ul__twi--icon")
+        %li.iconzone__ul__pas
+          =link_to "https://www.pinterest.jp/", class: "iconzone__ul__pas" do
+            = icon('fab', 'pinterest', class: "iconzone__ul__pas--icon")
 
-  .itemsubzone
-    %h2.itemsubzone__name
-      = link_to "#", class: "" do
-        〇〇のその他の出品
-    .itemsubzone__box
-      .itemsubzone__box__item
+    .itemsubzone
+      %h2.itemsubzone__name
         = link_to "#", class: "" do
-          .itemsubzone__box__item__photo
-          .itemsubzone__box__item__content
-            %p.itemsubzone__box__item__content__title
-              Fmarket ロゴ　ステッカー
-            .itemsubzone__box__item__content__bottom
-              %span.itemsubzone__box__item__content__bottom__yen
-                ¥10,000
-              .itemsubzone__box__item__content__bottom__right
-                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
-                %span.itemsubzone__box__item__content__bottom__right__num
-                  3
-      .itemsubzone__box__item
+          〇〇のその他の出品
+      .itemsubzone__box
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+
+  -else
+    .formzone
+      .commentzone
+        .commentzone__top
+          %p.commentzone__top__content
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+
+        %textarea.commentzone__text{name: "content", placeholder: "", type: "text"}
+
+      = link_to "#", class: "formzone__btn" do
+        コメントする
+    %ul.page
+      %li.page__left
+        = icon('fas', 'chevron-left', class: 'page__left--icon')
+        = link_to "#", class: "page__left" do
+          シーリングファン
+      %li.page__right
+        = link_to "#", class: "page__right" do
+          iPhone x white
+          = icon('fas', 'chevron-right', class: 'page__right--icon')
+
+    .iconzone
+      .iconzone__tex
+      %ul.iconzone__ul
+        %li
+          =link_to "https://www.facebook.com/", class: "iconzone__ul__face" do
+            = icon('fab', 'facebook-square', class: "iconzone__ul__face--icon")
+        %li
+          =link_to "https://twitter.com/", class: "iconzone__ul__twi" do
+            = icon('fab', 'twitter', class: "iconzone__ul__twi--icon")
+        %li.iconzone__ul__pas
+          =link_to "https://www.pinterest.jp/", class: "iconzone__ul__pas" do
+            = icon('fab', 'pinterest', class: "iconzone__ul__pas--icon")
+
+    .itemsubzone
+      %h2.itemsubzone__name
         = link_to "#", class: "" do
-          .itemsubzone__box__item__photo
-          .itemsubzone__box__item__content
-            %p.itemsubzone__box__item__content__title
-              Fmarket ロゴ　ステッカー
-            .itemsubzone__box__item__content__bottom
-              %span.itemsubzone__box__item__content__bottom__yen
-                ¥10,000
-              .itemsubzone__box__item__content__bottom__right
-                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
-                %span.itemsubzone__box__item__content__bottom__right__num
-                  3
-      .itemsubzone__box__item
-        = link_to "#", class: "" do
-          .itemsubzone__box__item__photo
-          .itemsubzone__box__item__content
-            %p.itemsubzone__box__item__content__title
-              Fmarket ロゴ　ステッカー
-            .itemsubzone__box__item__content__bottom
-              %span.itemsubzone__box__item__content__bottom__yen
-                ¥10,000
-              .itemsubzone__box__item__content__bottom__right
-                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
-                %span.itemsubzone__box__item__content__bottom__right__num
-                  3
-      .itemsubzone__box__item
-        = link_to "#", class: "" do
-          .itemsubzone__box__item__photo
-          .itemsubzone__box__item__content
-            %p.itemsubzone__box__item__content__title
-              Fmarket ロゴ　ステッカー
-            .itemsubzone__box__item__content__bottom
-              %span.itemsubzone__box__item__content__bottom__yen
-                ¥10,000
-              .itemsubzone__box__item__content__bottom__right
-                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
-                %span.itemsubzone__box__item__content__bottom__right__num
-                  3
-      .itemsubzone__box__item
-        = link_to "#", class: "" do
-          .itemsubzone__box__item__photo
-          .itemsubzone__box__item__content
-            %p.itemsubzone__box__item__content__title
-              Fmarket ロゴ　ステッカー
-            .itemsubzone__box__item__content__bottom
-              %span.itemsubzone__box__item__content__bottom__yen
-                ¥10,000
-              .itemsubzone__box__item__content__bottom__right
-                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
-                %span.itemsubzone__box__item__content__bottom__right__num
-                  3
-      .itemsubzone__box__item
-        = link_to "#", class: "" do
-          .itemsubzone__box__item__photo
-          .itemsubzone__box__item__content
-            %p.itemsubzone__box__item__content__title
-              Fmarket ロゴ　ステッカー
-            .itemsubzone__box__item__content__bottom
-              %span.itemsubzone__box__item__content__bottom__yen
-                ¥10,000
-              .itemsubzone__box__item__content__bottom__right
-                = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
-                %span.itemsubzone__box__item__content__bottom__right__num
-                  3
+          〇〇のその他の出品
+      .itemsubzone__box
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
+        .itemsubzone__box__item
+          = link_to "#", class: "" do
+            .itemsubzone__box__item__photo
+            .itemsubzone__box__item__content
+              %p.itemsubzone__box__item__content__title
+                Fmarket ロゴ　ステッカー
+              .itemsubzone__box__item__content__bottom
+                %span.itemsubzone__box__item__content__bottom__yen
+                  ¥10,000
+                .itemsubzone__box__item__content__bottom__right
+                  = icon('far', 'heart', class: 'itemsubzone__box__item__content__bottom__right--icon')
+                  %span.itemsubzone__box__item__content__bottom__right__num
+                    3
 
 
