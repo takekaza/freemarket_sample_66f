@@ -3,7 +3,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  require 'payjp'
 
   # GET /resource/sign_up
 
@@ -59,34 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.telephones.build(@telephone.attributes)
     @user.addresses.build(@address.attributes)
     @user.save
-
-    if @user.save
-      session[:id] = @user.id
-      sign_in User.find(session[:id]) unless user_signed_in?
-      #後にcurrent_user.idが必要なので、signinさせてしまう
-    else
-      render root_path
-    end
-    Payjp.api_key = Rails.application.credentials[:pay_jp][:PAYJP_PRIVATE_KEY] # APIキーの呼び出し
-    if params['payjp_token'].blank? # ここはJavaScriptの.append()内のname属性です
-      render :new_card and return
-    else
-      customer = Payjp::Customer.create(        # customerの定義、ここの情報を元に、カード情報との紐付けがされる
-        card: params['payjp_token'],            # 必須です
-        metadata: {user_id: current_user.id}    # なくてもいいです
-      )
-      @card = Card.new(                  # カードテーブルのデータの作成
-        user_id: current_user.id,        # ここでcurrent_user.idがいるので、前もってsigninさせておく
-        customer_id: customer.id,        # customerは上で定義
-        card_id: customer.default_card   # .default_cardを使うことで、customer定義時に紐付けされたカード情報を引っ張ってくる ここがnullなら上のcustomerのcard: params['payjp_token']が読み込めていないことが多い
-      )
-
-      if @card.save
-        redirect_to 
-      else
-        redirect_to action: "create"
-      end
-    end
+    sign_in(:user, @user)
   end
 
   def destroy
@@ -131,9 +103,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  def cards_params
-    params.require(:card).permit(:id, :card_id, :customer_id, :user_id,)
-  end
 
   def telephone_params
     params.require(:telephone).permit(:phone_number, :user_id)
