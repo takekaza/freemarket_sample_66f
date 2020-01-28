@@ -8,9 +8,10 @@
           .single-main__buyitem__inner__box__image
           =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2482339763", size: "80x80",alt:"visa"
           .single-main__buyitem__inner__box__detail
-            %p.single-main__buyitem__inner__box__detail__name Apple MacBook Pro 13インチ
+            %p.single-main__buyitem__inner__box__detail__name 
+            = @item.name
             %p.single-main__buyitem__inner__box__detail__price
-              %span ¥1,000
+              %span ¥ #{@item.price}
               %span (税込み) 送料込み
   
     %section.single-main__buyitem
@@ -19,7 +20,7 @@
           .single-main__buyitem__inner__payprice__label
             %p 支払い金額
           .single-main__buyitem__inner__payprice__price
-            %p ¥1,000
+            %p ¥ #{@item.price}
         .single-main__buyitem__inner__usepoint
           %input#box1{type: "checkbox"}/
           ポイントを使用 (所持ポイント: P0)
