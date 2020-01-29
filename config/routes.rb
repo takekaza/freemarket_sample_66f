@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'purchase/done'
   get 'cards/card'
   get 'home/show'
+  get 'cards/editpro'
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
