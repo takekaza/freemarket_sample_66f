@@ -23,7 +23,7 @@ class PurchaseController < ApplicationController
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials[:pay_jp][:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
-    amount: 1000, #支払金額を入力（itemテーブル等に紐づけても良い）
+    amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     customer: @card.customer_id, #顧客ID
     currency: 'jpy', #日本円
   )

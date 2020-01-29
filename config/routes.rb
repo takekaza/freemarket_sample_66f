@@ -35,17 +35,28 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
-  resources :items
+  
+  resources :items do
+    member do
+      get 'buy'
+      post 'buy_create'
+      post 'pay'
+      get 'done'
+    end
+  end
   resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]
   resources :images 
 
   resources :purchase, only: [:index] do
     collection do
-      get 'index', to: 'purchase#index'
       post 'pay', to: 'purchase#pay'
       get 'done', to: 'purchase#done'
     end
+    member do
+      get 'index', to: 'purchase#index'
+    end
+    
   end
 
 end
