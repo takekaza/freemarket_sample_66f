@@ -17,8 +17,6 @@ Rails.application.routes.draw do
     post 'telephones', to: 'users/registrations#create_telephone'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
-    get 'cards'     , to: 'users/registrations#new_card'
-    post 'cards'    , to: 'users/registrations#create_card'
     get 'users/signup' => 'users/registrations#new_sns', as:"new0_user_registration"
   end
   
