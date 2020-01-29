@@ -6,6 +6,7 @@ class PurchaseController < ApplicationController
     @item =Item.find_by(params[:id])
     @user = User.find_by(params[:id])
     @address = Address.find_by(user_id: current_user.id)
+    @image = Image.find_by(params[:id])
     @card = Card.where(user_id: current_user.id).first
 
     if @card.blank?
@@ -18,6 +19,7 @@ class PurchaseController < ApplicationController
   end
 
   def pay
+    @item =Item.find_by(params[:id])
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials[:pay_jp][:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
@@ -25,6 +27,7 @@ class PurchaseController < ApplicationController
     customer: @card.customer_id, #顧客ID
     currency: 'jpy', #日本円
   )
+  @item.destroy
   redirect_to action: 'done' #完了画面に移動
   end
 
