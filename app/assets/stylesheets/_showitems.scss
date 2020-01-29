@@ -347,6 +347,98 @@
       }
     }
   }
+  &__btn{
+    margin: 0 auto;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    background-color: rgb(240, 103, 10);
+    text-decoration: none;
+    display: block;
+    color: white;
+    box-shadow: 0 2px 3px 0 #9E9E9E;
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+  &__text{
+    line-height: 3;
+    padding: 35px 0 0;
+    width: 100%;
+    max-height: 600px;
+    height: 100%;
+    &__area{
+      padding: 20px;
+      white-space: pre-wrap;
+    }
+  }
+  
+  &__bar{
+    width: 100%;
+    margin: 40px 0 0;
+    max-height: 50px;
+    display: flex;
+    justify-content: space-around;
+    &__left{
+      &__iine{
+        $color: rgb(240, 240, 240);
+        background-color: $color;
+        text-decoration: none;
+        border-radius: 100px;
+        border: 2px solid $color;
+        color: black;
+        cursor: pointer;
+        padding: 4px 15px;
+        font-size: 14px;
+        margin: 0 8px;
+        border-image: initial;
+        transition: all 0.5s ease-out 0s;
+        &:hover{
+          border: 2px solid red;
+        }
+        &--icon{
+          margin-right: 10px;
+          color: rgb(200, 200, 200);
+          text-transform: none;
+          &:hover{
+            background-color: red;
+          }
+        }
+        &__font{
+
+        }
+        &__num{
+          animation: fade-in-down ease-out .4s forwards;
+        }
+      }
+      &__link{
+        $color: rgb(240, 240, 240);
+        background-color: $color;
+        text-decoration: none;
+        border-radius: 100px;
+        border: 2px solid $color;
+        color: black;
+        cursor: pointer;
+        padding: 4px 15px;
+        margin: 0 8px;
+        border-image: initial;
+        transition: all 0.5s ease-out 0s;
+      }
+    }
+    &__right{
+      color: #38aef0;
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 30px;
+      right: 30px;
+      &--icon{
+        color: #38aef0;
+      }
+      &:after{
+        opacity: 0.6;
+      }
+    }
+  }
   .btnzone{
     width: 100%;
     margin: 60px auto 30px;
@@ -433,7 +525,7 @@
             height: 60px;
             font-size: 16px;
           }
-         
+        
         }
       
         #delete-comformation-btn {
