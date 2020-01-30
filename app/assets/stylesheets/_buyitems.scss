@@ -32,15 +32,16 @@
       text-align: center;  
 
     }
+  }
     // 購入商品の情報
-    &__item{
+    .single-main__buyitem{
       text-align: center;
       padding: 24px 16px;
       border-top: 1px solid #f5f5f5;
-      &--inner{
+      &__inner{
         max-width: 343px;
         margin: 0 auto;
-        &--box{
+        &__box{
           display: flex;
           &__left{
             background-image:url(https://static.mercdn.net/thumb/photos/m24342302529_1.jpg?1578985472);
@@ -74,16 +75,13 @@
               font-size: 15px;
               display: flex;
               align-items: center;
-
               &__tax{
                 font-size: 12px;
               }
-
             }
           }
         }
       }
-
     }
     // 支払金額と支払い方法
     &__pay{
@@ -164,7 +162,7 @@
                 margin-top: 8px;          
               }
             }
-            
+          
           }
           &__adress{
             transition: all ease-out .3s;
@@ -210,11 +208,11 @@
           }
         }
       }
-
+    
     }
   }
   // フッター
-  &__footer{
+  .add-item__footer{
     z-index: 1;
     height: 250px;
     padding: 40px 0;
@@ -251,7 +249,7 @@
       margin: 8px 0 0;
     }
   }
-}
+
 // テンプレ
 .buy-items-textTemplate{
   display: flex;
@@ -269,5 +267,4 @@
       text-decoration:underline ;
     }
   }
-
 }

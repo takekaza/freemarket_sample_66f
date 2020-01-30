@@ -5,8 +5,9 @@
     %section.single-main__buyitem
       .single-main__buyitem__inner
         .single-main__buyitem__inner__box
+        - @item.images.first(1).each do |image|
           .single-main__buyitem__inner__box__image
-          = image_tag "#{@image.url}", class: "single-main__buyitem__inner__box__image", size: "80x80", alt:"logo"
+          = image_tag "#{image.url}", class: "single-main__buyitem__inner__box__image", size: "80x80", alt:"logo"
           .single-main__buyitem__inner__box__detail
             %p.single-main__buyitem__inner__box__detail__name 
             = @item.name
