@@ -43,6 +43,9 @@ Rails.application.routes.draw do
       post 'pay'
       get 'done'
     end
+    collection do
+      get 'search'
+    end
   end
   resources :brands, only: [:index, :new, :show]
   resources :categories, only:[:index]

@@ -4,10 +4,11 @@
       .boxtop__img
         = image_tag "fmarket_logo_red.svg", class: "boxtop__img", alt:"logo"
       .boxtop__form
-        %input#keyword.boxtop__form{:placeholder => "何かお探しですか？", :type => "text"}/
-        = link_to "#", class: "boxtop__form" do
-          = icon('fas', 'search', class: 'boxtop__form--icon')
-    
+        = form_with(url: search_items_path, local: true, method: :get, id: "keyword") do |form| 
+          = form.text_field :keyword, placeholder: "何かお探しですか？", class: "boxtop__form" 
+          = button_tag type: "submit", class: "boxtop__form--icon" do
+            %i.fa.fa-search
+        %end
     - if user_signed_in?
       .myboxbar
         .myboxbar__list

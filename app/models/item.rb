@@ -15,6 +15,10 @@ class Item < ApplicationRecord
   validates :date, presence: true,exclusion: { in: %w(---) }
   validates :berser, presence: true,exclusion: { in: %w(---) }
   validates :region, presence: true,exclusion: { in: %w(---) }
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)', "%#{search}%")
+  end
 
 
 end

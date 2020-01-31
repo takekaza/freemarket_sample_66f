@@ -1,0 +1,41 @@
+.main
+  .frame
+    %ul.frame__list
+      %li.frame__list--img
+
+
+  .category
+    .title
+      %p
+        人気のカテゴリー
+    .sub
+      %ul.sub__cate
+        %li.sub__cate--zone
+          %p
+            メンズ
+        %li.sub__cate--zone
+          %p
+            レディース
+  .itemzone
+    .subzone
+      .subzone__box
+        .box-bar
+          %p
+            検索結果
+          = link_to "#", class: "box-bar__more" do
+            もっと見る　＞
+  
+    %ul.subitem
+      - @items.each do |item|
+        %li.itemsubzone__box__item
+          = link_to item_path(item), class: "itemsubzone__box__item__link" do
+            - item.images.first(1).each do |image| 
+              %figure.itemsubzone__box__item__link__photo
+                = image_tag "#{image.url}"
+                %span.itemsubzone__box__item__link__photo__yen
+                  #textyen
+                    ¥ #{item.price}
+
+            %figcaption.itemsubzone__box__item__link__content
+              %span.itemsubzone__box__item__link__content__title
+                = item.name
