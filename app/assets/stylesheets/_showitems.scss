@@ -52,16 +52,22 @@
           outline: none;
           padding: 0px 50px 0px 10px;
           transition: all 0.5s ease-out 0s;
-        }
-        .myboxtop__form{
-          position: relative;
-          &--icon{
-            position: absolute;
-            right: 10px;
-            top: 1px;
-            cursor: pointer;
-            align-items: center;
-            color: black;
+          .myboxtop__form{
+            position: relative;
+            border-style: none;
+            background-color: whitesmoke;
+            height: 100%;
+            &--icon{
+              position: absolute;
+              right: 10px;
+              //top: 1px;
+              height: 38px;
+              border-style: none;
+              background-color: whitesmoke;
+              cursor: pointer;
+              align-items: center;
+              color: black;
+            }
           }
         }
       }

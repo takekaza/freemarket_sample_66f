@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index,:new, :create,:done]
+  before_action :set_item, except: [:index,:new, :create,:done,:search]
 
   def index
     @item = Item.includes(:user)
@@ -84,6 +84,10 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def search
+    @items = Item.search(params[:keyword])
+  end
+
   private
   def item_params
     params.require(:item).permit(:name,:text,:price,:condition,:berser,:way,:region,:date,:size, :price, images_attributes: [:url,:_destroy,:id],category_attributes: [:name],brand_attributes: [:name]).merge(user_id: current_user.id)
@@ -91,6 +95,7 @@ class ItemsController < ApplicationController
 
 
   def set_item
+    # binding.pry
     @item =Item.find(params[:id])
   end
 
